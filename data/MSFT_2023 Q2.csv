@@ -1,0 +1,96 @@
+Line Item,Report Period,Metric Type,Line Item Period,Low,High,Unit,Source Sentence
+Microsoft Cloud Quarterly Revenue,2023 Q2,Retrospective,Q2 2023,27,None,currency,The Microsoft Cloud exceeded $27 billion in quarterly revenue
+Microsoft Cloud Revenue Growth,2023 Q2,Retrospective,Q2 2023,22,29,percentage,"The Microsoft Cloud exceeded $27 billion in quarterly revenue, up 22% and 29% in constant currency."
+Line Item,2023 Q2,Statement,Period,Low,High,unit,Source Sentence
+:--,2023 Q2,:--,:--,:--,:--,:--,:--
+Cloud usage,2023 Q2,Retrospective,Q2 2023,2,None,number,Enterprises have moved millions of cases to Azure and run twice as many calls on our cloud today than they did two years ago.
+Cost savings,2023 Q2,Retrospective,Q2 2023,20,None,percentage,"As an example, insurer AIA was able to save more than 20% by migrating to Azure"
+IT provisioning time,2023 Q2,Retrospective,Q2 2023,1,None,number,and reduced IT provisioning time from multiple months to just an hour.
+Arc customers,2023 Q2,retrospective,Q2 2023,12000,None,number,"We now have more than 12,000 Arc customers, double the number a year ago, including companies like Citrix, Northern Trust, and PayPal."
+Azure ML revenue increase,2023 Q2,retrospective,Q2 2023,100,None,percentage,"Azure ML revenue alone has increased more than 100% for five quarters in a row with companies like AXA, FedEx, and H&R Block choosing the service to deploy, manage and govern their models."
+GitHub developers,2023 Q2,retrospective,Q2 2023,100,None,number,GitHub is now home to 100 million developers
+GitHub Copilot users,2023 Q2,retrospective,Q2 2023,1,None,number,More than 1 million people have used Copilot to date.
+Power Automate Customers,2023 Q2,retrospective,Q2 2023,45000,None,number,"Power Automate has more than 45,000 customers from AT&T to Rabobank, up over 50% year over year."
+Power Automate Customers Growth,2023 Q2,retrospective,Q2 2023,50,None,percentage,"Power Automate has more than 45,000 customers from AT&T to Rabobank, up over 50% year over year."
+Microsoft 365 consumer subscribers,2023 Q2,retrospective,Q2 2023,63,None,number,"We have more than 63 million consumer subscribers, up 12% year over year"
+Microsoft 365 consumer subscribers growth,2023 Q2,retrospective,Q2 2023,12,None,percentage,"We have more than 63 million consumer subscribers, up 12% year over year"
+Teams monthly active users,2023 Q2,retrospective,Q2 2023,280,None,number,"Teams surpassed 280 million monthly active users this quarter, showing durable momentum since the pandemic"
+Teams active users,2023 Q2,retrospective,Q2 2023,500000,None,number,"Apps from Adobe, Atlassian, Poly, ServiceNow, and Workday have each surpassed 0.5 million active users"
+Third-party apps users,2023 Q2,retrospective,Q2 2023,10000,None,number,"the number of third-party apps with more than 10,000 users increased nearly 40% year over year"
+Third-party apps users growth,2023 Q2,retrospective,Q2 2023,40,None,percentage,"the number of third-party apps with more than 10,000 users increased nearly 40% year over year"
+Teams Rooms devices,2023 Q2,retrospective,Q2 2023,500000,None,number,"There are more than 500,000 active Teams Rooms devices"
+Teams Rooms devices growth,2023 Q2,retrospective,Q2 2023,70,None,percentage,up 70% year over year
+Customers with more than 1000 rooms,2023 Q2,retrospective,Q2 2023,None,None,number,"the number of customers with more than 1,000 rooms doubled year over year"
+Customers with more than 1000 rooms growth,2023 Q2,retrospective,Q2 2023,100,None,percentage,"the number of customers with more than 1,000 rooms doubled year over year"
+Teams Rooms deployment,2023 Q2,retrospective,Q2 2023,5000,None,number,"Novo Nordisk will deploy Teams Rooms to 5,000 meeting rooms globally in our largest deal to date."
+Teams Phone PSTN seats,2023 Q2,retrospective,Q2 2023,5000000,None,number,We have added more than 5 million PSTN seats over the last 12 months alone.
+Line Item Name,2023 Q2,Statement,Period,Low,High,unit,Source Sentence
+:--,2023 Q2,:--,:--,:--,:--,:--,:--
+Enterprise customers using five or more Microsoft 365 applications,2023 Q2,Retrospective,Q2 2023,80,None,percentage,80% of our enterprise customers use five or more Microsoft 365 applications.
+Line Item,2023 Q2,Statement,Period,Low,High,unit,Source Sentence
+PCs Shipped,2023 Q2,Retrospective,Q2 2023,None,None,number,"While the number of PCs shipped declined during the quarter, returning to pre-pandemic levels, usage intensity of Windows continues to be higher than pre pandemic with time spent per PC up nearly 10%."
+Time Spent per PC,2023 Q2,Retrospective,Q2 2023,10,None,percentage,"While the number of PCs shipped declined during the quarter, returning to pre-pandemic levels, usage intensity of Windows continues to be higher than pre pandemic with time spent per PC up nearly 10%."
+Windows 365 and Azure Virtual Desktop Usage,2023 Q2,Retrospective,Q2 2023,None,None,number,We're also seeing growth in cloud-delivered Windows with usage of Windows 365 and Azure Virtual Desktop up by over two-thirds year over year.
+Windows 365 and Azure Virtual Desktop Usage Growth,2023 Q2,Retrospective,Q2 2023,None,2/3,percentage,We're also seeing growth in cloud-delivered Windows with usage of Windows 365 and Azure Virtual Desktop up by over two-thirds year over year.
+Leaders in every industry from Campari and Grant Thornton U.K. to Nutrien and Woolworths,2023 Q2,retrospective,Q2 2023,60,None,percentage,"Leaders in every industry from Campari and Grant Thornton U.K. to Nutrien and Woolworths are using cloud-delivered Windows, including more than 60% of the Fortune 500."
+Security business revenue,2023 Q2,retrospective,2023,20,None,currency,"Over the past 12 months, our security business surpassed $20 billion in revenue as we help customers protect their digital estate across clouds and endpoint platforms."
+Line Item Name,2023 Q2,Statement,Period,Low,High,unit,Source Sentence
+:--,2023 Q2,:--,:--,:--,:--,:--,:--
+Number of organizations with four or more workloads,2023 Q2,Retrospective,FY 2023,40,None,percentage,The number of organizations with four or more workloads increased over 40% year over year.
+Number of signals processed,2023 Q2,Retrospective,Daily,65,None,number,"We're the only company with integrated end-to-end tools spanning identity, security, compliance, device management, and privacy informed and trained on over 65 trillion signals each day."
+Line Item Name,2023 Q2,Statement,Period,Low,High,unit,Source Sentence
+LinkedIn Members,2023 Q2,Retrospective,Q2 2023,900,None,number,We once again saw record engagement among our more than 900 million members.
+Over 80% of these members are from outside the United States,2023 Q2,retrospective,Q2 2023,80,None,percentage,Over 80% of these members are from outside the United States.
+Newsletter creation was up 10x year over year,2023 Q2,retrospective,Q2 2023,10,None,number,Newsletter creation was up 10x year over year.
+"We offer more than 20,000 courses in 11 languages",2023 Q2,retrospective,Q2 2023,20000,None,number,"We offer more than 20,000 courses in 11 languages."
+More than 45% of the hires on LinkedIn explicitly using skills data to fill their roles,2023 Q2,retrospective,Q2 2023,45,None,percentage,More than 45% of the hires on LinkedIn explicitly using skills data to fill their roles.
+Line Item,2023 Q2,Statement Type,Period,Low,High,unit,Source Sentence
+Bing user growth,2023 Q2,retrospective,2023,30,None,percentage,"Bing continues to gain share in the United States, and daily users of our Start personalized content feed increased over 30% year over year."
+Game Pass subscriptions,2023 Q2,retrospective,Q2 2023,None,None,number,We saw new highs for Game Pass subscriptions
+Game streaming hours,2023 Q2,retrospective,Q2 2023,None,None,number,We saw new highs for...game streaming hours
+Monthly active devices,2023 Q2,retrospective,Q2 2023,None,None,number,We saw new highs for...monthly active devices
+Monthly active users,2023 Q2,retrospective,Q2 2023,120,None,number,Monthly active users surpassed a record 120 million during the quarter.
+Line Item Name,2023 Q2,Statement Type,Period,Low,High,unit,Source Sentence
+Gross Margin Impact,2023 Q2,Retrospective,Q2 2023,152,None,currency,The resulting Q2 charge negatively impacted gross margin by $152 million
+Operating Income Impact,2023 Q2,Retrospective,Q2 2023,1.2,None,currency,Operating income by $1.2 billion
+Earnings Per Share Impact,2023 Q2,Retrospective,Q2 2023,0.12,None,currency,Earnings per share by $0.12
+Revenue,2023 Q2,Retrospective,Q2 2023,52.7,None,currency,Our second quarter revenue was $52.7 billion
+Revenue Growth,2023 Q2,Retrospective,Q2 2023,2,7,percentage,"Revenue was $52.7 billion, up 2% and 7% in constant currency."
+Gross Margin Dollars Increase,2023 Q2,retrospective,Q2 2023,2,8,percentage,"When adjusted for the charge, gross margin dollars increased 2% and 8% in constant currency"
+Operating Income Change,2023 Q2,retrospective,Q2 2023,-3,6,percentage,operating income decreased 3% and increased 6% in constant currency
+Earnings Per Share,2023 Q2,retrospective,Q2 2023,2.32,None,currency,and earnings per share was $2.32
+Earnings Per Share Change,2023 Q2,retrospective,Q2 2023,-6,2,percentage,which decreased 6% and increased 2% in constant currency.
+Commercial bookings,2023 Q2,retrospective,Q2 2023,7,None,percentage,"Commercial bookings increased 7% and 4% in constant currency, lower than expected."
+Commercial bookings,2023 Q2,retrospective,Q2 2023,4,None,percentage,"Commercial bookings increased 7% and 4% in constant currency, lower than expected."
+Commercial remaining performance obligation,2023 Q2,retrospective,Q2 2023,29,26,percentage,Commercial remaining performance obligation increased 29% to 26% in constant currency to $189 billion.
+Commercial remaining performance obligation,2023 Q2,retrospective,Q2 2023,189,None,currency,Commercial remaining performance obligation increased 29% to 26% in constant currency to $189 billion.
+Revenue recognition in the next 12 months,2023 Q2,retrospective,Q2 2023,45,None,percentage,"Roughly 45% will be recognized in revenue in the next 12 months, up 24% year over year."
+Revenue recognition in the next 12 months,2023 Q2,retrospective,Q2 2023,24,None,percentage,"Roughly 45% will be recognized in revenue in the next 12 months, up 24% year over year."
+Revenue recognition beyond the next 12 months,2023 Q2,retrospective,Q2 2023,32,None,percentage,"The remaining portion, which will be recognized beyond the next 12 months, increased 32%."
+Annuity mix,2023 Q2,retrospective,Q2 2023,2,None,percentage,Our annuity mix increased two points year over year to 96%.
+Annuity mix,2023 Q2,retrospective,Q2 2023,96,None,percentage,Our annuity mix increased two points year over year to 96%.
+FX impact on total company revenue,2023 Q2,retrospective,Q2 2023,-5,None,percentage,"FX decreased total company revenue by five points, in line with expectations."
+FX impact on Productivity and Business Processes revenue growth,2023 Q2,retrospective,Q2 2023,-6,None,percentage,"FX decreased Productivity and Business Processes revenue growth by six points, one point favorable to expectations."
+FX impact on COGS growth,2023 Q2,retrospective,Q2 2023,-2,None,percentage,"FX decreased both COGS and operating expense growth by two points, one point unfavorable to expectations."
+FX impact on operating expense growth,2023 Q2,retrospective,Q2 2023,-2,None,percentage,"FX decreased both COGS and operating expense growth by two points, one point unfavorable to expectations."
+Microsoft Cloud revenue,2023 Q2,retrospective,Q2 2023,27.1,None,usd,"Microsoft Cloud revenue was $27.1 billion and grew 22% and 29% in constant currency, ahead of expectations."
+Microsoft Cloud revenue growth,2023 Q2,retrospective,Q2 2023,22,29,percentage,"Microsoft Cloud revenue was $27.1 billion and grew 22% and 29% in constant currency, ahead of expectations."
+Microsoft Cloud gross margin percentage,2023 Q2,retrospective,Q2 2023,72,None,percentage,"Microsoft Cloud gross margin percentage increased roughly two points year over year to 72%, a point better than expected, driven by lower energy costs."
+Microsoft Cloud gross margin percentage,2023 Q2,retrospective,Q2 2023,None,None,percentage,"Excluding the impact of the change in accounting estimate for useful lives, Microsoft Cloud gross margin percentage decreased roughly one point, primarily driven by sales mix shift to Azure."
+Company gross margin percentage,2023 Q2,retrospective,Q2 2023,67,None,percentage,Company gross margin percentage was 67%..
+Gross Margin Percentage Decrease,2023 Q2,Retrospective,Q2 2023,2,None,percentage,"Excluding the impact of the change in accounting estimate, gross margin percentage decreased roughly two points, driven by a lower mix of Windows OEM revenue and sales mix shift from licensing to cloud."
+Operating Expense Growth,2023 Q2,Retrospective,Q2 2023,11,13,percentage,"Operating expense when adjusted for the Q2 charge increased 11% and 13% in constant currency, about $500 million lower than expected."
+Operating Expense,2023 Q2,Retrospective,Q2 2023,500,None,currency,"Operating expense when adjusted for the Q2 charge increased 11% and 13% in constant currency, about $500 million lower than expected."
+Company Headcount Growth,2023 Q2,Retrospective,Q2 2023,19,None,percentage,"At a total company level, headcount ended December 19% higher than a year ago."
+Sequential headcount growth,2023 Q2,retrospective,Q2 2023,<1,None,percentage,Sequential headcount growth was less than 1%.
+Year-over-year growth,2023 Q2,retrospective,Q2 2023,6,None,percentage,"Year-over-year growth included roughly six points from the Nuance and Xandr acquisitions, which closed last Q3 and Q4, respectively."
+Operating margins,2023 Q2,retrospective,Q2 2023,41,None,percentage,"Adjusted for the charge, operating margins decreased roughly two points year over year to 41%."
+Operating margins,2023 Q2,retrospective,Q2 2023,None,4,percentage,"Excluding the impact of the change in accounting estimate, operating margins declined roughly four points, primarily driven by unfavorable FX impact, as well as a lower mix of OEM revenue."
+Productivity and Business Processes Revenue,2023 Q2,Retrospective,Q2 2023,17,None,usd,"Revenue from Productivity and Business Processes was $17 billion and grew 7% and 13% in constant currency, in line with expectations when excluding the favorable FX impact noted earlier."
+Productivity and Business Processes Revenue Growth,2023 Q2,Retrospective,Q2 2023,7,13,percentage,"Revenue from Productivity and Business Processes was $17 billion and grew 7% and 13% in constant currency, in line with expectations when excluding the favorable FX impact noted earlier."
+Office Commercial Revenue Growth,2023 Q2,Retrospective,Q2 2023,7,14,percentage,Office Commercial revenue grew 7% and 14% in constant currency.
+Office 365 Commercial Revenue Growth,2023 Q2,Retrospective,Q2 2023,11,18,percentage,"Office 365 Commercial revenue increased 11% and 18% in constant currency, slightly better than expected with healthy renewal execution and ARPU growth as E5 momentum remains strong."
+Paid Office 365 Commercial seats growth,2023 Q2,retrospective,2023,12,None,percentage,Paid Office 365 Commercial seats grew 12% year over year with installed base expansion across all workloads and customer segments.
+Office Consumer revenue growth,2023 Q2,retrospective,Q2 2023,-2,3,percentage,"Office Consumer revenue declined 2% and increased 3% in constant currency, with continued momentum in Microsoft 365 subscriptions, which grew 12% to 63.2 million, partially offset by declines in our transactional business."
+Microsoft 365 subscriptions,2023 Q2,retrospective,Q2 2023,63.2,None,number,"Office Consumer revenue declined 2% and increased 3% in constant currency, with continued momentum in Microsoft 365 subscriptions, which grew 12% to 63.2 million, partially offset by declines in our transactional business."
+LinkedIn revenue growth,2023 Q2,retrospective,Q2 2023,10,14,percentage,"LinkedIn revenue increased 10% and 14% in constant currency, driven by growth in Talent Solutions, partially offset by weakness in Marketing Solutions from the advertising trends noted earlier."

@@ -1,0 +1,188 @@
+Line Item,Report Period,Metric Type,Line Item Period,Low,High,Unit,Source Sentence
+Microsoft Cloud Revenue,2023 Q1,Retrospective,Q1 2023,25,None,usd,"With that context, this quarter, the Microsoft Cloud again exceeded $25 billion in quarterly revenue"
+Microsoft Cloud Revenue Growth,2023 Q1,Retrospective,Q1 2023,24,31,percentage,"With that context, this quarter, the Microsoft Cloud again exceeded $25 billion in quarterly revenue, up 24% and 31% in constant currency"
+Commercial Business Growth,2023 Q1,Guidance,2023,20,None,percentage,"And based on current trends continuing, we expect our broader commercial business to grow at around 20% in constant currency this fiscal year"
+Line Item Name,2023 Q1,Statement,Period,Low,High,unit,Source Sentence
+:--,2023 Q1,:--,:--,:--,:--,:--,:--
+Arc Customers,2023 Q1,Retrospective,Q1 2023,8500,None,number,"We now have more than 8,500 Arc customers, more than double the number a year ago.."
+Azure ML revenue increase,2023 Q1,retrospective,Q1 2023,100,None,percentage,"All of, Azure ML revenue has increased more than 100% for four quarters in a row."
+GitHub annual recurring revenue,2023 Q1,retrospective,2023,1,None,currency,"Four years since our acquisition, GitHub is now at $1 billion in annual recurring revenue.."
+GitHub Users,2023 Q1,retrospective,Q1 2023,90,None,number,More than 90 million people now use the service to build software for any cloud on any platform up three times.
+Power Apps monthly active users,2023 Q1,retrospective,Q1 2023,15,None,number,"Power Apps is the market leader in Low-Code/No-Code tools and has nearly 15 million monthly active users, up more than 50% compared to a year ago."
+Power Apps monthly active users growth,2023 Q1,retrospective,Q1 2023,50,None,percentage,"Power Apps is the market leader in Low-Code/No-Code tools and has nearly 15 million monthly active users, up more than 50% compared to a year ago."
+Power Automate monthly active users,2023 Q1,retrospective,Q1 2023,7,None,number,"Power Automate has more than seven million monthly active users and is being used by companies like Brown-Forman, Komatsu, Mass, T-Mobile to digitize manual business processes and save thousands of hours of employee time."
+"All up more than 400,000 organizations",2023 Q1,retrospective,Q1 2023,400000,None,number,"All up more than 400,000 organizations now use our business applications."
+Users interact with Teams,2023 Q1,retrospective,Q1 2023,1500,None,number,"Users interact with Teams 1,500 times per month on average."
+Users who use four or more features within Teams,2023 Q1,retrospective,Q1 2023,20,None,percentage,the number of users who use four or more features within Teams increased over 20% year over year.
+Monthly active enterprise users running third party and custom applications within Teams,2023 Q1,retrospective,Q1 2023,60,None,percentage,Monthly active enterprise users running third party and custom applications within Teams increased nearly 60% year over year.
+Enterprise customers who use Teams and buy Teams Rooms or Teams Phone,2023 Q1,retrospective,Q1 2023,55,None,percentage,over 55% of our enterprise customers who use Teams today also buy Teams Rooms or Teams Phone.
+Microsoft Viva,2023 Q1,retrospective,Q1 2023,20,None,number,"We've also built a completely new suite for our employee experience platform, Microsoft Viva, which now has more than 20 million monthly active users at companies like Finastra, SES, and Unilever."
+"""Monthly active Windows devices growth",2023 Q1,retrospective,Q1 2023,20,None,percentage,"All up, there are nearly 20% more monthly active Windows devices than pre-pandemic."""
+"""Windows 10 and Windows 11 users time spent growth",2023 Q1,retrospective,Q1 2023,8.5,None,percentage,"And on average, Windows 10 and Windows 11 users are spending 8.5% more time on their PCs than they were two and a half years ago."""
+Windows 11 deployment at Accenture,2023 Q1,retrospective,Q1 2023,450000,None,number,"Accenture, for example, has deployed Windows 11 to more than 450,000 employees' PCs"
+Windows 11 deployment at Accenture seven months ago,2023 Q1,retrospective,Q1 2023,25000,None,number,"up from just 25,000, seven months ago"
+Windows 11 deployment at L'Oreal,2023 Q1,retrospective,Q1 2023,85000,None,number,"and L'Oreal has deployed the operating system to 85,000 employees."
+"""Number of organizations using security solutions",2023 Q1,Retrospective,FY 2023,860000,None,number,"More than 860,000 organizations across every industry from BP and Fuji Film to ING Bank, iHeartMedia, and Lumen Technologies now use our security solutions, up 33% year over year."""
+"""Year over year growth in organizations using security solutions",2023 Q1,Retrospective,FY 2023,33,None,percentage,"More than 860,000 organizations across every industry from BP and Fuji Film to ING Bank, iHeartMedia, and Lumen Technologies now use our security solutions, up 33% year over year."""
+"""Potential savings from security stack consolidation",2023 Q1,Retrospective,FY 2023,60,None,percentage,"They can save up to 60% when they consolidate our security stack."""
+"""Year over year growth in customers with more than four workloads",2023 Q1,Retrospective,FY 2023,50,None,percentage,"and the number of customers with more than four workloads have increased 50% year over year."""
+"""Year over year growth in E5 customers who also purchased Sentinel",2023 Q1,Retrospective,FY 2023,44,None,percentage,"The number of E5 customers who also purchased Sentinel increased 44% year over year.."""
+Members,2023 Q1,retrospective,Q1 2023,875,None,number,"We once again saw record engagement among our more than 875 million members, with international growth increasing at nearly 2x the pace as in the United States."
+International growth pace,2023 Q1,retrospective,Q1 2023,2,None,number,"We once again saw record engagement among our more than 875 million members, with international growth increasing at nearly 2x the pace as in the United States."
+Newsletter subscriptions,2023 Q1,retrospective,Q1 2023,150,None,number,"There are now more than 150 million subscriptions to newsletters on LinkedIn, up 4x year over year."
+Newsletter subscriptions growth,2023 Q1,retrospective,Q1 2023,4,None,number,"There are now more than 150 million subscriptions to newsletters on LinkedIn, up 4x year over year."
+Skills added to profiles,2023 Q1,retrospective,Q1 2023,365,None,number,"Members added 365 million skills to their profiles over the last 12 months, up 43% year over year."
+Skills added to profiles growth,2023 Q1,retrospective,Q1 2023,43,None,percentage,"Members added 365 million skills to their profiles over the last 12 months, up 43% year over year."
+Line Item Name,2023 Q1,Statement,Period,Low,High,unit,Source Sentence
+:--,2023 Q1,:--,:--,:--,:--,:--,:--
+New markets,2023 Q1,Retrospective,Q1 2023,15,None,number,"And this quarter, we brought our shopping tools to 15 new markets."
+Content consumption,2023 Q1,Retrospective,Q1 2023,2,None,number,"Users of our Start, personalized content feed are consuming 2x more content compared to a year ago."
+PC Game Pass subscriptions increase,2023 Q1,retrospective,FY 2023,159,None,percentage,PC Game Pass subscriptions increased 159% year over year.
+People used the service to stream games,2023 Q1,retrospective,FY 2023,20,None,number,More than 20 million people have used the service to stream games to date.
+First Quarter Revenue,2023 Q1,Retrospective,Q1 2023,50.1,None,currency,Our first quarter revenue was $50.1 billion
+Revenue Growth,2023 Q1,Retrospective,Q1 2023,11,16,percentage,"Our first quarter revenue was $50.1 billion, up 11% and 16% in constant currency"
+Earnings Per Share,2023 Q1,Retrospective,Q1 2023,2.35,None,currency,Earnings per share was $2.35
+Earnings Per Share Growth,2023 Q1,Retrospective,Q1 2023,4,11,percentage,"Earnings per share was $2.35, increased 4% and 11% in constant currency when adjusted for the net tax benefit for the first quarter of fiscal year 2022."
+Consumer Business,2023 Q1,Retrospective,Q1 2023,None,None,none,"In our consumer business, PC market demand further deteriorated in September, which impacted our Windows OEM and Surface businesses."
+Customer Advertising Spend,2023 Q1,Retrospective,Q1 2023,None,None,none,"And reductions in customer advertising spend, which also weakened later in the quarter, impacted search and news advertising and LinkedIn Marketing Solutions."
+Microsoft Cloud Offerings Growth,2023 Q1,Retrospective,Q1 2023,31,None,percentage,"In our commercial business, we saw strong overall demand for our Microsoft cloud offerings with a growth of 31% in constant currency as well as share gains across many businesses."
+Commercial Bookings,2023 Q1,Retrospective,Q1 2023,-3,None,percentage,Commercial bookings declined 3% and increased 16% in constant currency on a flat expiry base.
+Commercial Bookings in Constant Currency,2023 Q1,Retrospective,Q1 2023,16,None,percentage,Commercial bookings declined 3% and increased 16% in constant currency on a flat expiry base.
+Commercial remaining performance obligation,2023 Q1,retrospective,Q1 2023,31,34,percentage,Commercial remaining performance obligation increased 31% and 34% in constant currency to $180 billion.
+Commercial remaining performance obligation,2023 Q1,retrospective,Q1 2023,180,None,currency,Commercial remaining performance obligation increased 31% and 34% in constant currency to $180 billion.
+Revenue recognition,2023 Q1,retrospective,Q1 2023,45,None,percentage,"Roughly 45% will be recognized in revenue in the next 12 months, up 23% year over year."
+Revenue recognition year over year,2023 Q1,retrospective,Q1 2023,23,None,percentage,"Roughly 45% will be recognized in revenue in the next 12 months, up 23% year over year."
+Microsoft 365 bookings,2023 Q1,retrospective,Q1 2023,10,None,currency,More than half of the $10 million plus Microsoft 365 bookings came from E5.
+Remaining portion increase,2023 Q1,retrospective,2023,38,None,percentage,"The remaining portion, which we recognized beyond the next 12 months, increased 38% year over year"
+Annuity mix,2023 Q1,retrospective,2023,96,None,percentage,our annuity mix increased one point year over year to 96%
+FX impact on total company revenue,2023 Q1,retrospective,Q1 2023,-5,None,percentage,FX decreased total company revenue by five points
+FX impact on productivity and business processes revenue growth,2023 Q1,retrospective,Q1 2023,-6,None,percentage,FX decreased productivity and business processes and intelligent cloud revenue growth by six points
+FX impact on intelligent cloud revenue growth,2023 Q1,retrospective,Q1 2023,-6,None,percentage,FX decreased productivity and business processes and intelligent cloud revenue growth by six points
+FX impact on more personal computing revenue growth,2023 Q1,retrospective,Q1 2023,-3,None,percentage,more personal computing revenue growth by three points
+FX impact on COGS growth,2023 Q1,retrospective,Q1 2023,-3,None,percentage,FX decreased COGS and operating expense growth by three points
+FX impact on operating expense growth,2023 Q1,retrospective,Q1 2023,-3,None,percentage,FX decreased COGS and operating expense growth by three points
+Microsoft Cloud gross margin percentage,2023 Q1,retrospective,FY 2023,73,None,percentage,Microsoft Cloud gross margin percentage increased roughly two points year over year to 73%.
+Microsoft cloud gross margin percentage,2023 Q1,retrospective,FY 2023,None,1,percentage,"Microsoft cloud gross margin percentage decreased roughly one point driven by sales mix shift to Azure and lower Azure margin, primarily due to higher energy costs."
+Company gross margin dollars,2023 Q1,retrospective,Q1 2023,9,16,percentage,Company gross margin dollars increased 9% and 16% in constant currency.
+Gross margin percentage,2023 Q1,retrospective,FY 2023,69,None,percentage,Gross margin percentage decreased slightly year over year to 69%.
+Gross margin percentage,2023 Q1,retrospective,FY 2023,None,3,percentage,"Gross margin percentage decreased roughly three points, driven by sales mix shift to cloud, the lower Azure margin noted earlier and Nuance."
+Operating expense,2023 Q1,retrospective,Q1 2023,15,18,percentage,"Operating expense increased 15% and 18% in constant currency, driven by investments in cloud engineering, LinkedIn, Nuance, and commercial sales."
+Headcount Growth,2023 Q1,Retrospective,FY 2023,22,None,percentage,"At a total company level, headcount grew 22% year over year, as we continue to invest in key areas just mentioned, as well as customer deployment."
+Headcount Growth from Acquisitions,2023 Q1,Retrospective,FY 2023,6,None,percentage,"Headcount growth included roughly six points from the Nuance and Xandr acquisitions, which closed last Q3 and Q4, respectively."
+Operating Income Growth,2023 Q1,Retrospective,Q1 2023,6,15,percentage,"Operating income increased 6% and 15% in constant currency, and operating margins decreased roughly two points year over year to 43%."
+Operating Margins,2023 Q1,Retrospective,Q1 2023,43,None,percentage,"Operating income increased 6% and 15% in constant currency, and operating margins decreased roughly two points year over year to 43%."
+Operating Margins,2023 Q1,Retrospective,FY 2023,-4,None,percentage,"Excluding the impact of the change in accounting estimate, operating margins declined roughly four points year over year driven by sales mix shift to cloud, unfavorable FX impact, Nuance, and the lower Azure margin noted earlier."
+Revenue from productivity and business processes,2023 Q1,retrospective,Q1 2023,16.5,None,usd,"Revenue from productivity and business processes was $16.5 billion and grew 9% and 15% in constant currency, ahead of expectations, with better-than-expected results in Office commercial and LinkedIn."
+Revenue from productivity and business processes growth,2023 Q1,retrospective,Q1 2023,9,15,percentage,"Revenue from productivity and business processes was $16.5 billion and grew 9% and 15% in constant currency, ahead of expectations, with better-than-expected results in Office commercial and LinkedIn."
+Office commercial revenue growth,2023 Q1,retrospective,Q1 2023,7,13,percentage,Office commercial revenue grew 7% and 13% in constant currency.
+Office 365 commercial revenue growth,2023 Q1,retrospective,Q1 2023,11,17,percentage,"Office 365 commercial revenue increased 11% and 17% in constant currency, slightly better than expected, with the strong renewal execution noted earlier."
+Paid Office 365 commercial seats growth,2023 Q1,retrospective,FY 2023,14,None,percentage,Paid Office 365 commercial seats grew 14% year over year
+Office consumer revenue growth,2023 Q1,retrospective,FY 2023,7,11,percentage,Office consumer revenue grew 7% and 11% in constant currency
+Microsoft 365 subscriptions,2023 Q1,retrospective,FY 2023,13,None,percentage,"Microsoft 365 subscriptions, which grew 13% to $61.3 million"
+Microsoft 365 subscriptions,2023 Q1,retrospective,FY 2023,61.3,None,currency,"Microsoft 365 subscriptions, which grew 13% to $61.3 million."
+Dynamics revenue growth,2023 Q1,retrospective,Q1 2023,15,22,percentage,"Dynamics revenue grew 15% and 22% in constant currency, driven by Dynamics 365, which grew 24% and 32% in constant currency."
+Dynamics 365 revenue growth,2023 Q1,retrospective,Q1 2023,24,32,percentage,"Dynamics revenue grew 15% and 22% in constant currency, driven by Dynamics 365, which grew 24% and 32% in constant currency."
+LinkedIn revenue growth,2023 Q1,retrospective,Q1 2023,17,21,percentage,"LinkedIn revenue increased 17% and 21% in constant currency, ahead of expectations, driven by better-than-expected growth in talent solutions, partially offset by weakness in marketing solutions from the advertising trends noted earlier."
+Segment gross margin dollars growth,2023 Q1,retrospective,Q1 2023,11,18,percentage,"Segment gross margin dollars increased 11% and 18% in constant currency, and gross margin percentage increased roughly 1 point year over year."
+Gross margin percentage growth,2023 Q1,retrospective,Q1 2023,1,None,percentage,"Segment gross margin dollars increased 11% and 18% in constant currency, and gross margin percentage increased roughly 1 point year over year."
+Gross margin percentage change,2023 Q1,retrospective,Q1 2023,None,None,percentage,"Excluding the impact of the latest change in accounting estimate, gross margin percentage decreased slightly, driven by sales mix shift to cloud offerings."
+Operating expense increase,2023 Q1,retrospective,Q1 2023,13,16,percentage,Operating expense increased 13% and 16% in constant currency
+Operating income increase,2023 Q1,retrospective,Q1 2023,10,19,percentage,Operating income increased 10% and 19% in constant currency
+Accounting estimate impact,2023 Q1,retrospective,Q1 2023,4,None,percentage,Including four points due to the latest change in accounting estimate
+Intelligent cloud segment Revenue,2023 Q1,retrospective,Q1 2023,20.3,None,currency,Revenue was $20.3 billion
+Intelligent cloud segment Revenue increase,2023 Q1,retrospective,Q1 2023,20,26,percentage,Increasing 20% and 26% in constant currency
+Server products and cloud services revenue increase,2023 Q1,retrospective,Q1 2023,22,28,percentage,Server products and cloud services revenue increased 22% and 28% in constant currency.
+Azure and other cloud services revenue growth,2023 Q1,retrospective,Q1 2023,35,42,percentage,"Azure and other cloud services revenue grew 35% and 42% in constant currency, about one point lower than expected, driven by the continued moderation in Azure consumption growth, as we help customers optimize current workloads while they prioritize new workloads."
+Enterprise mobility and security installed base growth,2023 Q1,retrospective,Q1 2023,18,None,percentage,"In our per-user business, the enterprise mobility and security installed base grew 18% to over 232 million seats, with continued impact from the new deal moderation noted earlier."
+Enterprise mobility and security installed base,2023 Q1,retrospective,Q1 2023,232,None,number,"In our per-user business, the enterprise mobility and security installed base grew 18% to over 232 million seats, with continued impact from the new deal moderation noted earlier."
+On-premises server business revenue growth in constant currency,2023 Q1,retrospective,Q1 2023,4,None,percentage,"In our on-premises server business, revenue was flat, and increased 4% in constant currency, slightly ahead of expectations, driven by hybrid demand, including better-than-expected annuity purchasing ahead of the SQL Server 2022 launch."
+Enterprise services revenue growth,2023 Q1,retrospective,Q1 2023,5,10,percentage,"Enterprise services revenue grew 5% and 10% in constant currency, driven by enterprise support services.."
+Segment gross margin dollars increase,2023 Q1,retrospective,Q1 2023,20,26,percentage,Segment gross margin dollars increased 20% and 26% in constant currency
+Gross margin percentage decrease,2023 Q1,retrospective,Q1 2023,None,None,percentage,Gross margin percentage decreased slightly
+Gross margin percentage decrease,2023 Q1,retrospective,Q1 2023,3,None,percentage,Gross margin percentage declined roughly three points
+Operating expenses increase,2023 Q1,retrospective,Q1 2023,25,28,percentage,Operating expenses increased 25% and 28% in constant currency
+Operating expenses increase impact from Nuance,2023 Q1,retrospective,Q1 2023,8,None,percentage,Including roughly eight points of impact from Nuance
+Operating income growth,2023 Q1,retrospective,Q1 2023,17,25,percentage,Operating income grew 17% and 25% in constant currency
+Operating income growth impact from accounting estimate,2023 Q1,retrospective,Q1 2023,9,None,percentage,With roughly nine points of favorable impact from the latest change in accounting estimate.
+Personal Computing Revenue,2023 Q1,Retrospective,FY 2023,13.3,None,usd,Revenue decreased slightly year over year to $13.3 billion
+Personal Computing Revenue Growth,2023 Q1,Retrospective,FY 2023,3,None,percentage,Revenue...grew 3% in constant currency
+Windows OEM Revenue Growth,2023 Q1,Retrospective,FY 2023,-15,None,percentage,Windows OEM revenue decreased 15% year over year
+Windows OEM Revenue Growth excluding Windows 11 deferral,2023 Q1,Retrospective,FY 2023,-20,None,percentage,"Excluding the impact from the Windows 11 deferral last year, revenue declined 20%"
+Devices revenue growth,2023 Q1,retrospective,Q1 2023,2,8,percentage,"Devices revenue grew 2% and 8% in constant currency, in line with expectations, driven by the impact of a large Hollands deal, partially offset by low double-digit declines in consumer Surface sales."
+Windows commercial products and cloud services revenue growth,2023 Q1,retrospective,Q1 2023,8,15,percentage,"Windows commercial products and cloud services revenue grew 8% and 15% in constant currency, in line with expectations, driven by demand for Microsoft 365 E5 noted earlier."
+"Search and news advertising revenue growth, ex TAC",2023 Q1,retrospective,Q1 2023,16,21,percentage,"Search and news advertising revenue, ex TAC, increased 16% and 21% in constant currency, in line with expectations, benefiting from an increase in search volumes and roughly five points of impact from Xandr even as we saw increased ad market headwinds during September."
+Gaming Revenue Growth,2023 Q1,Retrospective,Q1 2023,4,None,percentage,"And in gaming, revenue grew slightly and was up 4% in constant currency, ahead of expectations, driven by better-than-expected console sales."
+Xbox Hardware Revenue Growth,2023 Q1,Retrospective,Q1 2023,13,19,percentage,Xbox hardware revenue grew 13% and 19% in constant currency.
+Xbox Content and Services Revenue Growth,2023 Q1,Retrospective,Q1 2023,-3,1,percentage,"Xbox content and services revenue declined 3% and increased 1% in constant currency, driven by declines in first-party content as well as in third-party content where we had lower engagement hours and higher monetization, partially offset by growth in Xbox Game Pass subscriptions."
+Segment Gross Margin Dollars Growth,2023 Q1,Retrospective,Q1 2023,-9,-4,percentage,"Segment gross margin dollars declined 9% and 4% in constant currency, and gross margin percentage decreased roughly five points year over year driven by sales mix shift to lower margin businesses."
+Gross Margin Percentage Growth,2023 Q1,Retrospective,Q1 2023,-5,None,percentage,"Segment gross margin dollars declined 9% and 4% in constant currency, and gross margin percentage decreased roughly five points year over year driven by sales mix shift to lower margin businesses."
+Operating expenses increase,2023 Q1,retrospective,Q1 2023,2,5,percentage,"Operating expenses increased 2% and 5% in constant currency, driven by the Xandr acquisition."
+Operating income decrease,2023 Q1,retrospective,Q1 2023,15,9,percentage,And operating income decreased 15% and 9% in constant currency.
+Capital expenditures,2023 Q1,retrospective,Q1 2023,6.6,None,currency,"Capital expenditures, including finance leases were $6.6 billion."
+Cash paid for PP&E,2023 Q1,retrospective,Q1 2023,6.3,None,currency,Cash paid for PP&E was $6.3 billion.
+Cash flow from operations,2023 Q1,Retrospective,Q1 2023,23.2,None,currency,"Cash flow from operations was $23.2 billion, down 5% year over year, driven by strong cloud billings and collections, which were more than offset by a tax payment related to the transfer of intangible property completed in Q1 of FY '22."
+Cash flow from operations year over year change,2023 Q1,Retrospective,Q1 2023,-5,None,percentage,"Cash flow from operations was $23.2 billion, down 5% year over year, driven by strong cloud billings and collections, which were more than offset by a tax payment related to the transfer of intangible property completed in Q1 of FY '22."
+Free cash flow,2023 Q1,Retrospective,Q1 2023,16.9,None,currency,"Free cash flow was $16.9 billion, down 10% year over year."
+Free cash flow year over year change,2023 Q1,Retrospective,Q1 2023,-10,None,percentage,"Free cash flow was $16.9 billion, down 10% year over year."
+Cash flow from operations excluding tax payment,2023 Q1,Retrospective,Q1 2023,2,None,percentage,"Excluding the impact of this tax payment, cash flow from operations grew 2%, and free cash flow was relatively unchanged [indiscernible] year."
+Other Income and Expense,2023 Q1,Retrospective,Q1 2023,54,None,usd,"This quarter, other income and expense was $54 million, driven by interest income, which was mostly offset by interest expense and net losses on foreign currency remeasurement."
+Effective Tax Rate,2023 Q1,Retrospective,Q1 2023,19,None,percentage,Our effective tax rate was approximately 19%.
+Shareholder Returns,2023 Q1,Retrospective,Q1 2023,9.7,None,usd,"And finally, we returned $9.7 billion to shareholders through share repurchases and dividends."
+FX impact on total revenue growth,2023 Q1,guidance,Q1 2023,5,None,percentage,"With the stronger US dollar and based on current rates, we now expect FX to decrease total revenue growth by approximately five points"
+FX impact on total COGS and operating expense growth,2023 Q1,guidance,Q1 2023,3,None,percentage,"With the stronger US dollar and based on current rates, we now expect FX to decrease total COGS and operating expense growth by approximately three points"
+FX impact on revenue growth in productivity and business processes,2023 Q1,guidance,Q1 2023,7,None,percentage,"Within the segments, we anticipate roughly seven points of negative FX impact on revenue growth in productivity and business processes"
+FX impact on revenue growth in Intelligent cloud,2023 Q1,guidance,Q1 2023,6,None,percentage,"Within the segments, we anticipate roughly seven points of negative FX impact on revenue growth in productivity and business processes, six points in Intelligent cloud"
+FX impact on revenue growth in more personal computing,2023 Q1,guidance,Q1 2023,3,None,percentage,"Within the segments, we anticipate roughly seven points of negative FX impact on revenue growth in productivity and business processes, six points in Intelligent cloud and three points in more personal computing."
+Commercial Bookings Growth Rate,2023 Q1,Guidance,Q1 2023,None,None,percentage,"In commercial bookings, continued strong execution across core annuity sales motions and commitments to our platform should drive solid growth on a moderately growing expiry base against a strong prior year comparable, which included a significant volume of large long-term Azure contracts."
+Microsoft Cloud Gross Margin Percentage,2023 Q1,Guidance,Q1 2023,1,None,percentage,"Microsoft Cloud gross margin percentage should be up roughly one point year over year, driven by the latest accounting estimate change noted earlier."
+Q2 Gross Margin Percentage,2023 Q1,Guidance,Q2 2023,-2,None,percentage,"Excluding that impact, Q2 gross margin percentage will decrease roughly two points driven by lower Azure margin, primarily due to higher energy cost, revenue mix shift to Azure and the impact from Nuance.."
+Capital Expenditures,2023 Q1,Guidance,Q1 2023,None,None,currency,"In capital expenditures, we expect a sequential increase on a dollar basis with normal quarterly spend variability in the timing of our cloud infrastructure build-out."
+Productivity and Business Processes Revenue Growth,2023 Q1,Guidance,Q1 2023,11,13,percentage,"In productivity and business processes, we expect revenue to grow between 11% and 13% in constant currency."
+Productivity and Business Processes Revenue,2023 Q1,Guidance,Q1 2023,16.6,16.9,currency,"In productivity and business processes, we expect revenue to grow between 11% and 13% in constant currency or USD16.6 billion to USD 16.9 billion."
+Office 365 revenue growth,2023 Q1,guidance,Q1 2023,None,None,percentage,We expect Office 365 revenue growth to be similar to last quarter on a constant currency basis.
+On-premises business revenue,2023 Q1,guidance,Q1 2023,low 30s,mid 30s,percentage,"In our on-premises business, we expect revenue to decline in the low to mid-30s."
+Office Consumer revenue,2023 Q1,guidance,Q1 2023,low single digits,mid single digits,percentage,"In Office Consumer, we expect revenue to decline low to mid-single digits as Microsoft 365 subscription growth will be more than offset by unfavorable FX impact."
+LinkedIn revenue growth,2023 Q1,guidance,Q1 2023,mid single digits,high single digits,percentage,"For LinkedIn, we expect continued strong engagement on the platform, although results will be impacted by a slowdown in advertising spend and hiring, resulting in mid to high single-digit revenue growth."
+LinkedIn revenue growth in constant currency,2023 Q1,guidance,Q1 2023,low teens,mid teens,percentage,"For LinkedIn, we expect continued strong engagement on the platform, although results will be impacted by a slowdown in advertising spend and hiring, resulting in low to mid-teens growth in constant currency."
+Dynamics Revenue Growth,2023 Q1,guidance,Q1 2023,10,20,percentage,"And in Dynamics, we expect revenue growth in the low double digits or the low 20s in constant currency, driven by continued share gains in Dynamics 365."
+Intelligent Cloud Revenue Growth,2023 Q1,guidance,Q1 2023,22,24,percentage,"For intelligent cloud, we expect revenue to grow between 22% and 24% in constant currency or US$21.25 billion to US$21.55 billion."
+Intelligent Cloud Revenue,2023 Q1,guidance,Q1 2023,21.25,21.55,currency,"For intelligent cloud, we expect revenue to grow between 22% and 24% in constant currency or US$21.25 billion to US$21.55 billion."
+Azure Revenue Growth,2023 Q1,guidance,Q1 2023,-5,None,percentage,We expect Azure revenue growth to be sequentially lower by roughly 5 points on a constant currency basis.
+Azure Revenue,2023 Q1,guidance,Q1 2023,None,None,currency,"Azure revenue will continue to be driven by strong growth in consumption, with some impact from the Q1 trends noted earlier."
+Microsoft 365 suite momentum,2023 Q1,guidance,Q1 2023,None,None,currency,"And our per user business should continue to benefit from Microsoft 365 suite momentum, though we expect moderation in growth rate given the size of the installed base."
+On-premise server business revenue,2023 Q1,guidance,Q1 2023,None,low single digits,currency,"In our on-premise server business, we expect revenue to decline low single digits, as demand for our hybrid solutions, including strong annuity purchasing from the SQL Server 2022 launch, will be more than offset by unfavorable FX impact."
+Enterprise services revenue growth,2023 Q1,guidance,Q1 2023,low single digits,None,currency,"And in enterprise services, we expect revenue growth to be in the low single digits, driven by enterprise support.."
+More Personal Computing Revenue,2023 Q1,guidance,Q1 2023,14.5,14.9,usd,"In More Personal Computing, we expect revenue of US$14.5 billion to US$14.9 billion."
+Windows OEM Revenue Decline,2023 Q1,guidance,Q1 2023,30,None,percentage,"In Windows OEM, we expect revenue to decline in the high 30s."
+Windows OEM Revenue Decline excluding Windows 11 deferral,2023 Q1,guidance,Q1 2023,30,None,percentage,"Excluding the impact from the Windows 11 revenue deferral last year, revenue would decline mid-30s, reflecting both PC market demand and a strong prior year comparable, particularly in the commercial segment."
+Devices Revenue Decline,2023 Q1,guidance,Q1 2023,30,None,percentage,"In devices, revenue should decline approximately 30%, again, roughly in line with the PC market."
+Windows commercial products and cloud services growth,2023 Q1,guidance,Q1 2023,5,10,percentage,"In Windows commercial products and cloud services, customer demand for Microsoft 365 and our advanced security solutions should drive growth in the mid-single digits or low double digits in constant currency."
+"Search and news advertising, ex TAC, growth",2023 Q1,guidance,Q1 2023,10,15,percentage,"Search and news advertising, ex TAC, should grow in the low to mid-teens, roughly six points faster than overall search and news advertising revenue, driven by growing first-party revenue and the inclusion of Xandr."
+Gaming revenue growth,2023 Q1,guidance,Q1 2023,-15,-10,percentage,"And in gaming, we expect revenue to decline in the low to mid-teens against a strong prior year comparable."
+Xbox content and services revenue decline,2023 Q1,guidance,Q1 2023,low teens,mid teens,percentage,We expect Xbox content and services revenue to decline in the low to mid-teens.
+COGS growth,2023 Q1,guidance,Q1 2023,6,7,percentage,We expect COGS to grow between 6% and 7% in constant currency.
+COGS,2023 Q1,guidance,Q1 2023,17.4,17.6,currency,or to be between US$17.4 billion and US$17.6 billion.
+Operating expense growth,2023 Q1,guidance,Q1 2023,17,18,percentage,and operating expense to grow between 17% and 18% in constant currency.
+Operating expense,2023 Q1,guidance,Q1 2023,14.3,14.4,currency,or to be between US$14.3 billion and US$14.4 billion.
+Total headcount growth,2023 Q1,guidance,Q1 2023,minimal,None,number,total headcount growth sequentially should be minimal.
+Other income and expense,2023 Q1,Guidance,Q1 2023,100,None,currency,"Other income and expense should be roughly $100 million, as interest income is expected to more than offset interest expense."
+Effective tax rate,2023 Q1,Guidance,Q2 2023,19,20,percentage,And we expect our Q2 effective tax rate to be between 19% and 20%.
+Q2 2023 Cash Flow,2023 Q1,Guidance,Q2 2023,2.4,None,currency,"And finally, as a reminder, for Q2 cash flow, we expect to make a $2.4 billion cash tax payment related to the capitalization of R&D provision enacted in 2017 TCJA and effective as of July 1, 2022."
+Full-Year Revenue Growth,2023 Q1,Guidance,2023,None,-5,percentage,"Based on current rates, we now expect a roughly five-point headwind to full-year revenue growth."
+FX impact on COGS and operating expense growth,2023 Q1,guidance,Q1 2023,3,None,percentage,And FX should decrease COGS and operating expense growth by approximately three points.
+Revenue growth,2023 Q1,guidance,Q1 2023,None,None,percentage,"At the total company level, we continue to expect double-digit revenue and operating income growth on a constant currency basis."
+Operating income growth,2023 Q1,guidance,Q1 2023,None,None,percentage,"At the total company level, we continue to expect double-digit revenue and operating income growth on a constant currency basis."
+Commercial business growth,2023 Q1,guidance,Q1 2023,20,None,percentage,"Revenue will be driven by around 20% constant currency growth in our commercial business, driven by strong demand for our Microsoft cloud offerings."
+Windows OEM business,2023 Q1,retrospective,Q1 2023,None,None,percentage,"With the high margins in our Windows OEM business and the cyclical nature of the PC market, we take a long-term approach to investing in our core strategic growth areas and maintain these investment levels regardless of PC market conditions."
+OEM revenue,2023 Q1,guidance,2023,None,None,currency,"Therefore, with our first quarter results and lower expected OEM revenue for the remainder of the year as well as over $800 million of greater-than-expected energy cost, we now expect operating margins in US dollars to be down roughly a point year over year."
+Energy cost,2023 Q1,guidance,2023,800,None,currency,"Therefore, with our first quarter results and lower expected OEM revenue for the remainder of the year as well as over $800 million of greater-than-expected energy cost, we now expect operating margins in US dollars to be down roughly a point year over year."
+Operating margins,2023 Q1,guidance,2023,None,None,percentage,"Therefore, with our first quarter results and lower expected OEM revenue for the remainder of the year as well as over $800 million of greater-than-expected energy cost, we now expect operating margins in US dollars to be down roughly a point year over year."
+Operating margins,2023 Q1,guidance,FY 2023,None,None,percentage,"On a constant currency basis, excluding the incremental impact of the lower Windows OEM revenue and the favorable impact of the latest accounting change, we continue to expect FY 2023 operating margins to be roughly flat year over year."
+Incremental Impact,2023 Q1,Guidance,Q1 2023,200,None,currency,Are you inferring that we can kind of dimensionalize that incremental impact at something like $200 million per quarter?
+Energy Cost,2023 Q1,Guidance,2023,800,None,currency,"As I said, it's over $800 million for the year."
+250-ish a quarter,2023 Q1,guidance,Q1 2023,250,None,currency,"And I think if you want to think about it, it's somewhere 250-ish a quarter. It's not exact, but that would be a decent assumption for the remainder of the year."
+17% constant currency,2023 Q1,retrospective,Q1 2023,17,None,percentage,"This quarter, for example, 17% constant currency"
+subscriber growth,2023 Q1,retrospective,Q1 2023,14,None,percentage,subscriber growth of 14%
+300 million subscribers,2023 Q1,retrospective,Q1 2023,300,None,number,I think you're already over 300 million subscribers.
+Segment Revenue,2023 Q1,Retrospective,2023,10,None,usd,"This was a segment that crossed over $10 billion, I think, earlier this year."
+Active Devices on Windows,2023 Q1,retrospective,Q1 2023,20,None,percentage,So when we talk about the overall active devices on Windows have grown by 20% over the pandemic.
