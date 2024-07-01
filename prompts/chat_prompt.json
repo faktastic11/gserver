@@ -1,0 +1,22 @@
+[
+	{
+		"role": "system",
+		"content": "You are an investment banker reading earnings call transcripts to find important information for the current and future quarters."
+	},
+	{
+		"role": "system",
+		"content": "Your goal is to transform a transcript into a uniform CSV format that can be uploaded to an SQL database."
+	},
+	{
+		"role": "user",
+		"content": "[Paste the transcript here, separating each segment by a newline character]"
+	},
+	{
+		"role": "assistant",
+		"content": "Thank you for providing the transcript. I will now process it and extract the future estimation data."
+	},
+	{
+		"role": "assistant",
+		"content": "Once the data is extracted, I will format it into a CSV format with consistent columns."
+	}
+]

@@ -1,0 +1,25 @@
+{
+    "base_context": {
+        "role": "system",
+        "content": "You are a financial analyst, reading earnings call commentary and extracting financial data. Issuer: {issuer}; Description: {description}; Current Period: {period}; Source: {source}",
+        "response_type": "str"
+    },
+    "extract_line_item": {
+        "role": "system",
+        "content": "Is there any numerical data or financial performance commentary in the extract below? If so, return a | separated list with each of the following fields. If there are no references return TERMINATE \n Extract: {extract};\n List Items:\n line_item: Name of the financial line item in the extract only.\n statement_type: Return only the keyword 'guidance' for forward looking statements/predictions or return keyword 'retrospective' for historical references.\n period: Return the time period referenced in relation to each line item. If no time period is referenced, return 'current'.\n metric type: Return 'single' if the statement is a single value and 'range' if a range was provided.",
+        "response_type": "list",
+        "next_prompt_key": "statement_type"
+    },
+    "single": {
+        "role": "system",
+        "content": "Return only the keys in the JSON template below regarding {line_item} for {period}.\n Extract {extract}\n JSON Template:\n \"unit\": \"What is the unit of measurement?\",\n\"value\": \"What is the value?\",\n\"change_type\": \"Return only 'increase', 'decrease', or 'flat' in reference to the {line_item}?\"",
+        "response_type": "json",
+        "next_prompt_key": "TERMINATE"
+    },
+    "range": {
+        "role": "system",
+        "content": "Return only the keys in the JSON template below regarding {line_item} for {period}.\n Extract {extract}\n JSON Template:\n \"unit\": \"What is the unit of measurement?\",\n \"low\": \"What is the low end of the range?\",\n \"high\": \"What is the high end of the range?\",\n \"change_type\": \"Return only 'increase', 'decrease', or 'flat' in reference to the {line_item}?\"",
+        "response_type": "json",
+        "next_prompt_key": "TERMINATE"
+    }
+}

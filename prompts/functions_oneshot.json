@@ -1,0 +1,62 @@
+{
+    "classify_line_items": {
+        "name": "classify_line_items",
+        "description": "Extract all data related to the Extract and financial line_item provided. Return None for the parameter if not found.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "statement_type": {
+                    "type": "string",
+                    "enum": [
+                        "guidance",
+                        "retrospective"
+                    ],
+                    "description": "guidance for forward looking statements/predictions or retrospective for historical references in relation to line_item"
+                },
+                "period": {
+                    "type": "string",
+                    "description": "The period referenced in relation to the financial line_item."
+                },
+                "metric_type": {
+                    "type": "string",
+                    "enum": [
+                        "single",
+                        "range",
+                        "sentiment"
+                    ],
+                    "description": "The type of metric referenced in relation to the financial line_item. Return sentiment for non-numerical guidance."
+                },
+                "unit": {
+                    "type": "string",
+                    "description": "The unit of measurement for the financial line_item. Include currencies and thousands, millions, billions, etc."
+                },
+                "language": {
+                    "type": "string",
+                    "description": "If metric_type is sentiment, The non-numerical language used to describe the sentiment of the statement, otherwise return None."
+                },
+                "low": {
+                    "type": "string",
+                    "description": "If the metric type is a range return the low end of the range, otherwise return None."
+                },
+                "high": {
+                    "type": "string",
+                    "description": "If the metric type is a range return the high end of the range, otherwise return None."
+                },
+                "value": {
+                    "type": "string",
+                    "description": "If the metric_type is single, return the numerical value referenced in relation to the financial line_item. If the numerical data is represented in words, translate it to numbers, otherwise return None"
+                }
+            },
+            "required": [
+                "statement_type",
+                "period",
+                "metric_type",
+                "unit",
+                "language",
+                "low",
+                "high",
+                "value"
+            ]
+        }
+    }
+}
