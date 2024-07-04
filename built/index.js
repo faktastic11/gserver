@@ -50,7 +50,7 @@ const transcripts_1 = __importDefault(require("./routes/transcripts"));
 const user_1 = __importDefault(require("./routes/user"));
 const scheduledJobs_1 = require("./scheduledJobs");
 // activate morgan logging
-app.use((0, morgan_1.default)('dev'));
+app.use((0, morgan_1.default)("dev"));
 // establish DB connection
 (0, server_1.connectToDB)().then(() => __awaiter(void 0, void 0, void 0, function* () {
     // dev stuff here
@@ -60,10 +60,15 @@ let whiteList = [
     /^https:\/\/sequent-fin\.netlify\.app$/,
     /sequent-fin\.netlify\.app/,
     /^https:\/\/admirable-paprenjak-66e11d\.netlify\.app$/,
+    /^https:\/\/guidance-frontend\.vercel\.app$/,
 ];
 // allow local front ends into the server
-if (envVariables_1.nodeEnv === 'local') {
-    whiteList = whiteList.concat([/^http:\/\/localhost:300.$/, /^http:\/\/localhost:1234$/, /^http:\/\/localhost:5173$/]);
+if (envVariables_1.nodeEnv === "local") {
+    whiteList = whiteList.concat([
+        /^http:\/\/localhost:300.$/,
+        /^http:\/\/localhost:1234$/,
+        /^http:\/\/localhost:5173$/,
+    ]);
 }
 const corsOptions = {
     origin: (origin, callback) => {
@@ -88,15 +93,15 @@ app.use((0, cors_1.default)(corsOptions));
 app.use(express_1.default.json());
 app.use(express_1.default.urlencoded({ extended: true }));
 // application routes
-app.use('/api', guidance_1.default);
-app.use('/api', transcripts_1.default);
+app.use("/api", guidance_1.default);
+app.use("/api", transcripts_1.default);
 // app.use('/api', processTranscriptRoutes)
-app.use('/api', user_1.default);
-app.use('*', error_1.genericExpressErrorHandler);
+app.use("/api", user_1.default);
+app.use("*", error_1.genericExpressErrorHandler);
 //run scheduled jobs
-if (envVariables_1.nodeEnv !== 'local')
+if (envVariables_1.nodeEnv !== "local")
     (0, scheduledJobs_1.runSampleJob)();
 app.listen(envVariables_1.port, () => {
-    console.log(`A ${envVariables_1.nodeEnv ? envVariables_1.nodeEnv.toUpperCase() : 'NO ENV FILE'} Node JS Server is listening on port ${envVariables_1.port}`);
+    console.log(`A ${envVariables_1.nodeEnv ? envVariables_1.nodeEnv.toUpperCase() : "NO ENV FILE"} Node JS Server is listening on port ${envVariables_1.port}`);
 });
 //# sourceMappingURL=index.js.map
