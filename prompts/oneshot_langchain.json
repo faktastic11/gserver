@@ -1,0 +1,4 @@
+{
+    "base_context": "Ticker: {companyName}; Transcript Fiscal Year: {fiscalYear}; Transcript Quarter: {fiscalQuarter}",
+    "extract_line_items": "Extract all numerical data from excerpt text below to create a table of line items. The leftmost column is the line item name. The second column is the period being referenced (quarter in the format Q2 2021 for example or year in the format 2021). The third and fourth columns are \"low\" and \"high\". For when data is given in a range, use both columns, otherwise use \"low\" and put None for \"high\". In the fifth column put the unit of the line item. In the sixth column put whether the statement is restrospective or guidance for forward looking statements. In the seventh column include the original source sentence from the text where the number in that row was found. Return TERMINATE if there is no financial data. Excerpt: {excerpt}."
+}

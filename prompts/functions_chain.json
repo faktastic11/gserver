@@ -1,0 +1,115 @@
+{
+    "classify_line_items": {
+        "name": "classify_line_items",
+        "description": "Extract all data related to the Extract and financial line_item provided. Return None for the parameter if not found.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "statement_type": {
+                    "type": "string",
+                    "enum": [
+                        "guidance",
+                        "retrospective"
+                    ],
+                    "description": "guidance for forward looking statements/predictions or retrospective for historical references in relation to line_item"
+                },
+                "period": {
+                    "type": "string",
+                    "description": "The period referenced in relation to the financial line_item."
+                },
+                "metric_type": {
+                    "type": "string",
+                    "enum": [
+                        "single",
+                        "range",
+                        "sentiment"
+                    ],
+                    "description": "Return single for single values, return range for a low/high range, return sentiment for non-numerical language references."
+                }
+            },
+            "required": [
+                "statement_type",
+                "period",
+                "metric_type"
+            ]
+        }
+    },
+    "classify_sentiment": {
+        "name": "classify_sentiment",
+        "description": "Extract sentiment information from the extract provided.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "sentiment": {
+                    "type": "string",
+                    "enum": [
+                        "positive",
+                        "negative",
+                        "neutral"
+                    ],
+                    "description": "Is the sentiment of the language positive, negative or neutral?"
+                },
+                "unit": {
+                    "type": "string",
+                    "description": "The unit of measurement for the financial line_item."
+                },
+                "language": {
+                    "type": "string",
+                    "description": "The language used to describe the sentiment of the statement."
+                }
+            },
+            "required": [
+                "sentiment",
+                "unit",
+                "language"
+            ]
+        }
+    },
+    "classify_range": {
+        "name": "classify_range",
+        "description": "Extract the range data for the financial line_item in the extract provided. Return None if info not found.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "unit": {
+                    "type": "string",
+                    "description": "The unit of measurement for the financial line_item."
+                },
+                "low": {
+                    "type": "string",
+                    "description": "If the metric type is a range return the low end of the range, otherwise return None."
+                },
+                "high": {
+                    "type": "string",
+                    "description": "If the metric type is a range return the high end of the range, otherwise return None."
+                }
+            },
+            "required": [
+                "unit",
+                "low",
+                "high"
+            ]
+        }
+    },
+    "classify_single_value": {
+        "name": "classify_single_value",
+        "description": "Extract the single value in relation to the line item in the extract. Return None if info not found.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "unit": {
+                    "type": "string",
+                    "description": "The unit of measurement for the financial line_item."
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The single value referenced in relation to the financial line_item."
+                }
+            },
+            "required": [
+                "unit",
+                "value"
+            ]
+        }
+    }
+}

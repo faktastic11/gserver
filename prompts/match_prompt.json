@@ -1,0 +1,18 @@
+[
+  {
+    "role": "system",
+    "content": "Decide whether the two line items you are given are referencing the same data and return it in a format like {{Sentence 1 Line Item Names, Q1 2023, Data}, {New Line Item Names, Q2 2023, Data}} "
+  },
+  {
+    "role": "user",
+    "content": "[Paste line item 1]"
+  },
+  {
+    "role": "user",
+    "content": "[paste line item 2]"
+  },
+  {
+    "role": "assistant",
+    "content": "Thanks, Once I have finished comparing these two line items I will return a message in the format: {{Sentence 1 Line Item Names, Quarter year, Data}, {New Line Item Names, Quarter year, Data}}"
+  }
+]

@@ -1,0 +1,7 @@
+{
+	"classifier_context": {
+		"role": "user",
+		"content": "Your goal is to decide whether the earnings call transcript for {companyName} contains any financial information of any kind. If the answer is yes or uncertain return True otherwise return False. Transcript: {transcriptParagraph}",
+		"response_type": "bool"
+	}
+}
