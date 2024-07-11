@@ -42,7 +42,15 @@ if (nodeEnv === "local") {
 }
 
 const corsOptions = {
-  origin: (origin, callback) => {
+  origin: (
+    origin: string | undefined,
+    callback: (error: Error | null, allow?: boolean) => void
+  ) => {
+    if (!origin) {
+      callback(null, true);
+      return;
+    }
+
     let found = false;
     for (const reg of whiteList) {
       if (reg.test(origin)) {
@@ -51,7 +59,7 @@ const corsOptions = {
       }
     }
 
-    if (found || !origin) {
+    if (found) {
       callback(null, true);
     } else {
       callback(new Error(`Hey So This Isn't Allowed by CORS`));
@@ -59,6 +67,7 @@ const corsOptions = {
   },
   credentials: true,
 };
+
 app.use(cors(corsOptions));
 
 // route parsing middleware
