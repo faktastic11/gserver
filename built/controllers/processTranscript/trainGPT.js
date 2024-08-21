@@ -12,13 +12,13 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const envVariables_1 = require("../../config/envVariables");
+const envVariables_1 = require("config/envVariables");
 const csv_parser_1 = __importDefault(require("csv-parser"));
 const fs_1 = __importDefault(require("fs"));
-const models_1 = require("../../models");
+const models_1 = require("models");
 const mongoose_1 = __importDefault(require("mongoose"));
-const openai_1 = require("../../services/openai");
-const util_1 = require("../../util");
+const openai_1 = require("services/openai");
+const util_1 = require("util");
 const processRawTranscriptToStaging_1 = require("./processRawTranscriptToStaging");
 const prompt_1 = require("./prompt");
 const readdir = (0, util_1.promisify)(fs_1.default.readdir);

@@ -35,34 +35,56 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-/* eslint-disable @typescript-eslint/no-explicit-any */
-const dotenv = __importStar(require("dotenv"));
-const fs = __importStar(require("fs"));
-dotenv.config({ path: `${process.cwd()}/.env` });
-const envVariables_1 = require("config/envVariables");
-const models_1 = require("models");
-const mongoose_1 = __importDefault(require("mongoose"));
-function runRawTranscriptSeed() {
+const bcrypt_1 = __importDefault(require("bcrypt"));
+const mongoose_1 = __importStar(require("mongoose"));
+const schemaOptions = {
+    toJSON: {
+        transform(doc, ret) {
+            delete ret.password;
+            return ret;
+        },
+    },
+    toObject: {
+        transform(doc, ret) {
+            delete ret.password;
+            return ret;
+        },
+    },
+};
+const UserSchema = new mongoose_1.Schema({
+    name: {
+        type: String,
+        required: true,
+        index: true,
+    },
+    email: {
+        type: String,
+        required: true,
+        index: true,
+    },
+    password: {
+        type: String,
+        required: true,
+        select: false,
+    },
+}, schemaOptions);
+UserSchema.pre('save', function (next) {
     return __awaiter(this, void 0, void 0, function* () {
-        // this function takes txt for a raw transcript and inserts it into the raw transcript collection
-        yield mongoose_1.default.connect((0, envVariables_1.makeMongoURI)('transcripts'));
-        const ticker = 'ADSK';
-        const fiscalQuarter = 1;
-        const fiscalYear = 2024;
-        const dateOfRecord = new Date('2024-05-25T21:00:00.000Z');
-        const filePath = `${process.cwd()}/data/ADSK_Q1_2024_RawTranscript.txt`;
-        // read file
-        const transcript = fs.readFileSync(filePath, 'utf8');
-        const transcriptArr = transcript.split('\n');
-        const newRawDoc = yield models_1.RawTranscript.create({
-            companyTicker: ticker,
-            companyName: ticker,
-            fiscalQuarter,
-            fiscalYear,
-            dateOfRecord,
-            transcript: transcriptArr,
-        }).catch((err) => console.log(err));
+        if (!this.isModified('password')) {
+            return next();
+        }
+        try {
+            const salt = yield bcrypt_1.default.genSalt(10);
+            this.password = yield bcrypt_1.default.hash(this.password, salt);
+            next();
+        }
+        catch (err) {
+            next(err);
+        }
     });
-}
-runRawTranscriptSeed();
-//# sourceMappingURL=seedDBRawTranscript.js.map
+});
+UserSchema.methods.getUserWithPassword = function () {
+    return this.model('User').findOne({ _id: this._id }).select('+password');
+};
+exports.default = mongoose_1.default.model('User', UserSchema);
+//# sourceMappingURL=User.js.map

@@ -33,25 +33,21 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getRegLogger = exports.OpenAICompletionLogger = void 0;
-const envVariables_1 = require("../config/envVariables");
+const envVariables_1 = require("config/envVariables");
 const csv_writer_1 = require("csv-writer");
 const date_fns_1 = require("date-fns");
 const fs = __importStar(require("fs"));
 const ld = __importStar(require("lodash"));
 const winston_1 = require("winston");
-const LOGS_DIR = './logs';
-// create logs directory if it doesn't exist
-if (!fs.existsSync(LOGS_DIR)) {
-    fs.mkdirSync(LOGS_DIR);
-}
+const LOGS_DIR = "./logs";
 class OpenAICompletionLogger {
     constructor(csvFilePath, logToDB = false) {
         this.filePath = csvFilePath;
         this.logToDB = logToDB;
         this.headers = [
-            { id: 'environment', title: 'env' },
-            { id: 'createdDate', title: 'created' },
-            { id: 'created', title: 'unixCreated' },
+            { id: "environment", title: "env" },
+            { id: "createdDate", title: "created" },
+            { id: "created", title: "unixCreated" },
         ];
         this.csvWriter = (0, csv_writer_1.createObjectCsvWriter)({
             header: this.headers,
@@ -64,7 +60,7 @@ class OpenAICompletionLogger {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 // wx creates a file if its not there
-                fs.writeFileSync(this.filePath, '');
+                fs.writeFileSync(this.filePath, "");
                 fs.accessSync(this.filePath);
                 const st = fs.statSync(this.filePath);
                 if (st.size > 0) {
@@ -81,7 +77,7 @@ class OpenAICompletionLogger {
         return __awaiter(this, void 0, void 0, function* () {
             // unix time stamp --> date --> formatted string
             const logEntry = ld.cloneDeep(chatCompletionResObj);
-            logEntry.createdDate = (0, date_fns_1.format)(new Date(logEntry.created * 1000), 'yyyy-MM-dd HH:mm:ss');
+            logEntry.createdDate = (0, date_fns_1.format)(new Date(logEntry.created * 1000), "yyyy-MM-dd HH:mm:ss");
             logEntry.env = envVariables_1.nodeEnv;
             // flatten out completion to write to csv record
             const logger_row = [process.env.NODE_ENV, logEntry.createdDate];
@@ -99,11 +95,11 @@ const getRegLogger = (logFileName) => {
     return (0, winston_1.createLogger)({
         format: combine(timestamp(), myFormat),
         transports: [
-            new winston_1.transports.Console({ level: 'debug' }),
-            new winston_1.transports.File({
-                filename: `${LOGS_DIR}/${logFileName}_${new Date()}.log`,
-                level: 'debug',
-            }),
+            new winston_1.transports.Console({ level: "debug" }),
+            // new transports.File({
+            //   filename: `${LOGS_DIR}/${logFileName}_${new Date()}.log`,
+            //   level: 'debug',
+            // }),
         ],
     });
 };

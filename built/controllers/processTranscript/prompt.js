@@ -11,8 +11,8 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ChatGPTSession = exports.OpenAICompletion = exports.GPTPrompt = void 0;
 const crypto_1 = require("crypto");
-const openai_1 = require("../../services/openai");
-const loggers_1 = require("../../util/loggers");
+const openai_1 = require("services/openai");
+const loggers_1 = require("util/loggers");
 const openai_2 = require("../../services/openai");
 /* eslint-disable @typescript-eslint/no-explicit-any */
 const logger = (0, loggers_1.getRegLogger)(__filename);
@@ -35,8 +35,8 @@ class GPTPrompt {
         this.promptName = promptName || 'dunnom8';
         this.postInit({ promptName: null, content: content, contentData: this.metaData });
     }
-    postInit({ promptName, content, contentData }) {
-        return __awaiter(this, void 0, void 0, function* () {
+    postInit(_a) {
+        return __awaiter(this, arguments, void 0, function* ({ promptName, content, contentData }) {
             this.promptName = promptName || 'dunnom8';
             this.content = this.formatString({ string: content, replacements: contentData });
         });
@@ -77,7 +77,7 @@ class OpenAICompletion {
 exports.OpenAICompletion = OpenAICompletion;
 class ChatGPTSession {
     constructor({ model, terminationKey, baseContext, }) {
-        this.openAIGPTAPICall = ({ prompt, model = this.defaultModel, availableFunctions = undefined, functionCall = 'auto', }) => __awaiter(this, void 0, void 0, function* () {
+        this.openAIGPTAPICall = (_a) => __awaiter(this, [_a], void 0, function* ({ prompt, model = this.defaultModel, availableFunctions = undefined, functionCall = 'auto', }) {
             // TODO: retry delays possible?
             const completionResponse = yield this.openai.createChatCompletion({
                 model,
@@ -90,7 +90,7 @@ class ChatGPTSession {
             this.pastPrompts.push(prompt);
             return [this.processResponse(prompt, response), response];
         });
-        this.getEmbeddings = ({ text }) => __awaiter(this, void 0, void 0, function* () {
+        this.getEmbeddings = (_b) => __awaiter(this, [_b], void 0, function* ({ text }) {
             return yield this.openai.getEmbeddings({ text });
         });
         this.defaultModel = model;

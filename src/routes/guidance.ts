@@ -7,6 +7,7 @@ import {
 } from 'controllers/guidance'
 import express from 'express'
 import Joi from 'joi'
+import { authenticateToken } from 'middleware/auth'
 import validateFn, { reqTargetTypes } from 'validators'
 
 const router = express.Router()
@@ -25,7 +26,7 @@ const tickerGuidanceValidation = (req, res, next) => {
   validateFn(req, res, next, [{ schema: querySchema, reqTarget: reqTargetTypes.QUERY }])
 }
 
-router.get('/v1/guidance', tickerGuidanceValidation, (req, res, next) =>
+router.get('/v1/guidance', authenticateToken, tickerGuidanceValidation, (req, res, next) =>
   getTickerGuidance(req, res, next).catch((err) => {
     console.error(err)
     return logApiError(req, res, next, err, 500, 'Could not get company guidance or it does not exist')
@@ -47,7 +48,7 @@ const guidancePeriodsValidation = (req, res, next) => {
   ])
 }
 
-router.get('/v1/guidance/periods/:companyTicker', guidancePeriodsValidation, (req, res, next) =>
+router.get('/v1/guidance/periods/:companyTicker', authenticateToken, guidancePeriodsValidation, (req, res, next) =>
   getCompanyGuidancePeriods(req, res, next).catch((err) => {
     return logApiError(req, res, next, err, 500, 'Could not get company guidance segments or they do not exist')
   }),
@@ -68,17 +69,21 @@ const guidanceTranscriptsValidation = (req, res, next) => {
   ])
 }
 
-router.get('/v1/guidance/transcripts/:companyTicker', guidanceTranscriptsValidation, (req, res, next) =>
-  getCompanyGuidanceTranscripts(req, res, next).catch((err) => {
-    return logApiError(
-      req,
-      res,
-      next,
-      err,
-      500,
-      'Could not get company guidance transcript segments or they do not exist',
-    )
-  }),
+router.get(
+  '/v1/guidance/transcripts/:companyTicker',
+  authenticateToken,
+  guidanceTranscriptsValidation,
+  (req, res, next) =>
+    getCompanyGuidanceTranscripts(req, res, next).catch((err) => {
+      return logApiError(
+        req,
+        res,
+        next,
+        err,
+        500,
+        'Could not get company guidance transcript segments or they do not exist',
+      )
+    }),
 )
 
 const guidanceCompaniesValidation = (req, res, next) => {
@@ -90,7 +95,7 @@ const guidanceCompaniesValidation = (req, res, next) => {
   validateFn(req, res, next, [{ schema: schema, reqTarget: reqTargetTypes.QUERY }])
 }
 
-router.get('/v1/guidance/companies', guidanceCompaniesValidation, (req, res, next) => {
+router.get('/v1/guidance/companies', authenticateToken, guidanceCompaniesValidation, (req, res, next) => {
   getGuidanceCompanies(req, res, next).catch((err) => {
     return logApiError(req, res, next, err, 500, 'Could not get guidance for companies')
   })

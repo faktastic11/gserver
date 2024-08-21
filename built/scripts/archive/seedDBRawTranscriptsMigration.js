@@ -39,9 +39,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 // seed mongo with processed transcripts
 const dotenv = __importStar(require("dotenv"));
 dotenv.config({ path: `${process.cwd()}/.env` });
-const envVariables_1 = require("../../config/envVariables");
+const envVariables_1 = require("config/envVariables");
 const date_fns_1 = require("date-fns");
-const models_1 = require("../../models");
+const models_1 = require("models");
 const mongoose_1 = __importDefault(require("mongoose"));
 function runRawTranscriptMigration() {
     return __awaiter(this, void 0, void 0, function* () {
@@ -52,7 +52,7 @@ function runRawTranscriptMigration() {
         console.log(collections);
         const docsToInsert = [];
         // Loop through each collection and log the collection name
-        yield Promise.all(collections.map(({ name: collectionName }) => __awaiter(this, void 0, void 0, function* () {
+        yield Promise.all(collections.map((_a) => __awaiter(this, [_a], void 0, function* ({ name: collectionName }) {
             let ticker = '';
             if (collectionName.includes('transcripts_')) {
                 ticker = collectionName.split('_')[1];

@@ -42,7 +42,7 @@ const openai_1 = __importDefault(require("openai"));
 const envVariables_1 = require("../config/envVariables");
 class OpenAiApiHelper {
     constructor({ maxRetries, timeout }) {
-        this.getEmbeddings = ({ text, model = 'text-embedding-ada-002' }) => __awaiter(this, void 0, void 0, function* () {
+        this.getEmbeddings = (_a) => __awaiter(this, [_a], void 0, function* ({ text, model = 'text-embedding-ada-002' }) {
             text = text.replace('\n', ' ');
             const returnPromise = this.openai.embeddings.create({ input: text, model: model });
             const embeddings = yield returnPromise;

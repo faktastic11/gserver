@@ -26,11 +26,12 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const error_1 = require("../controllers/error");
-const guidance_1 = require("../controllers/guidance");
+const error_1 = require("controllers/error");
+const guidance_1 = require("controllers/guidance");
 const express_1 = __importDefault(require("express"));
 const joi_1 = __importDefault(require("joi"));
-const validators_1 = __importStar(require("../validators"));
+const auth_1 = require("middleware/auth");
+const validators_1 = __importStar(require("validators"));
 const router = express_1.default.Router();
 const tickerGuidanceValidation = (req, res, next) => {
     const querySchema = joi_1.default.object({
@@ -44,7 +45,7 @@ const tickerGuidanceValidation = (req, res, next) => {
     });
     (0, validators_1.default)(req, res, next, [{ schema: querySchema, reqTarget: validators_1.reqTargetTypes.QUERY }]);
 };
-router.get('/v1/guidance', tickerGuidanceValidation, (req, res, next) => (0, guidance_1.getTickerGuidance)(req, res, next).catch((err) => {
+router.get('/v1/guidance', auth_1.authenticateToken, tickerGuidanceValidation, (req, res, next) => (0, guidance_1.getTickerGuidance)(req, res, next).catch((err) => {
     console.error(err);
     return (0, error_1.logApiError)(req, res, next, err, 500, 'Could not get company guidance or it does not exist');
 }));
@@ -61,7 +62,7 @@ const guidancePeriodsValidation = (req, res, next) => {
         { schema: paramSchema, reqTarget: validators_1.reqTargetTypes.PARAMS },
     ]);
 };
-router.get('/v1/guidance/periods/:companyTicker', guidancePeriodsValidation, (req, res, next) => (0, guidance_1.getCompanyGuidancePeriods)(req, res, next).catch((err) => {
+router.get('/v1/guidance/periods/:companyTicker', auth_1.authenticateToken, guidancePeriodsValidation, (req, res, next) => (0, guidance_1.getCompanyGuidancePeriods)(req, res, next).catch((err) => {
     return (0, error_1.logApiError)(req, res, next, err, 500, 'Could not get company guidance segments or they do not exist');
 }));
 const guidanceTranscriptsValidation = (req, res, next) => {
@@ -77,7 +78,7 @@ const guidanceTranscriptsValidation = (req, res, next) => {
         { schema: paramSchema, reqTarget: validators_1.reqTargetTypes.PARAMS },
     ]);
 };
-router.get('/v1/guidance/transcripts/:companyTicker', guidanceTranscriptsValidation, (req, res, next) => (0, guidance_1.getCompanyGuidanceTranscripts)(req, res, next).catch((err) => {
+router.get('/v1/guidance/transcripts/:companyTicker', auth_1.authenticateToken, guidanceTranscriptsValidation, (req, res, next) => (0, guidance_1.getCompanyGuidanceTranscripts)(req, res, next).catch((err) => {
     return (0, error_1.logApiError)(req, res, next, err, 500, 'Could not get company guidance transcript segments or they do not exist');
 }));
 const guidanceCompaniesValidation = (req, res, next) => {
@@ -87,7 +88,7 @@ const guidanceCompaniesValidation = (req, res, next) => {
     });
     (0, validators_1.default)(req, res, next, [{ schema: schema, reqTarget: validators_1.reqTargetTypes.QUERY }]);
 };
-router.get('/v1/guidance/companies', guidanceCompaniesValidation, (req, res, next) => {
+router.get('/v1/guidance/companies', auth_1.authenticateToken, guidanceCompaniesValidation, (req, res, next) => {
     (0, guidance_1.getGuidanceCompanies)(req, res, next).catch((err) => {
         return (0, error_1.logApiError)(req, res, next, err, 500, 'Could not get guidance for companies');
     });
