@@ -2,26 +2,33 @@
 
 // This script was using an old log version
 
-import CSVReadableStream from 'csv-reader'
-import * as dotenv from 'dotenv'
-import * as fs from 'fs'
-import { GPTLog } from '../../models'
+import CSVReadableStream from "csv-reader";
+import * as dotenv from "dotenv";
+import * as fs from "fs";
+import { GPTLog } from "../../models";
 
-dotenv.config({ path: `${process.cwd()}/.env` })
+dotenv.config({ path: `${process.cwd()}/.env` });
 
-import { parse } from 'date-fns'
-import mongoose from 'mongoose'
-import { makeMongoURI } from '../../config/envVariables'
+import { parse } from "date-fns";
+import mongoose from "mongoose";
+import { makeMongoURI } from "../../config/envVariables";
 
 const processPromptLogs = async () => {
   // read csv file
-  await mongoose.connect(makeMongoURI('transcripts'))
+  await mongoose.connect(makeMongoURI("transcripts"));
 
-  const filePath = `${process.cwd()}/data/promptLog_20230821.csv`
-  const inputStream = fs.createReadStream(filePath, 'utf8')
+  const filePath = `${process.cwd()}/data/promptLog_20230821.csv`;
+  const inputStream = fs.createReadStream(filePath, "utf8");
   inputStream
-    .pipe(CSVReadableStream({ parseNumbers: true, parseBooleans: true, trim: true, asObject: true }))
-    .on('data', async (row: any) => {
+    .pipe(
+      CSVReadableStream({
+        parseNumbers: true,
+        parseBooleans: true,
+        trim: true,
+        asObject: true,
+      }),
+    )
+    .on("data", async (row: any) => {
       // row is an array of CSV column data mapped to object properties
       const {
         logCreatedAt,
@@ -41,10 +48,14 @@ const processPromptLogs = async () => {
         completionTokens,
         totalTokens,
         promptCost,
-      } = row
+      } = row;
 
-      const chatgptCreatedAtDateObj = new Date(chatgptCreatedAt * 1000)
-      const logCreatedAtDateObj = parse(logCreatedAt, 'yyyy-MM-dd HH:mm:ss', new Date())
+      const chatgptCreatedAtDateObj = new Date(chatgptCreatedAt * 1000);
+      const logCreatedAtDateObj = parse(
+        logCreatedAt,
+        "yyyy-MM-dd HH:mm:ss",
+        new Date(),
+      );
       // const newPromptLogDoc = await PromptLog.create({
       //   logCreatedAt: logCreatedAtDateObj,
       //   logType,
@@ -64,6 +75,6 @@ const processPromptLogs = async () => {
       //   totalTokens,
       //   promptCost,
       // })
-    })
-}
+    });
+};
 // processPromptLogs()

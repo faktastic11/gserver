@@ -4,7 +4,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.genericExpressErrorHandler = exports.logServerError = exports.logApiError = void 0;
-const util_1 = __importDefault(require("util"));
+const util_1 = __importDefault(require("../util"));
 class ApiError extends Error {
     constructor(err, additionalInfo, statusCode, apiPath, body, query, params) {
         super(err);

@@ -33,7 +33,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getRegLogger = exports.OpenAICompletionLogger = void 0;
-const envVariables_1 = require("config/envVariables");
+const envVariables_1 = require("../config/envVariables");
 const csv_writer_1 = require("csv-writer");
 const date_fns_1 = require("date-fns");
 const fs = __importStar(require("fs"));

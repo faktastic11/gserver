@@ -26,12 +26,12 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const error_1 = require("controllers/error");
-const rawTranscripts_1 = require("controllers/rawTranscripts");
-const stagingTranscript_1 = require("controllers/stagingTranscript");
+const error_1 = require("../controllers/error");
+const rawTranscripts_1 = require("../controllers/rawTranscripts");
+const stagingTranscript_1 = require("../controllers/stagingTranscript");
 const express_1 = __importDefault(require("express"));
 const joi_1 = __importDefault(require("joi"));
-const validators_1 = __importStar(require("validators"));
+const validators_1 = __importStar(require("../validators"));
 const router = express_1.default.Router();
 const transcriptsValidation = (req, res, next) => {
     const querySchema = joi_1.default.object({

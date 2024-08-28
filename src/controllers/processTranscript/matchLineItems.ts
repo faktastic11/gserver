@@ -1,38 +1,42 @@
-import similarity from 'compute-cosine-similarity'
-import { createObjectCsvWriter } from 'csv-writer'
-import * as fs from 'fs'
-import mongoose from 'mongoose'
-import { makeMongoURI } from '../../config/envVariables'
-import { RawTranscript, StagingTranscript, StagingTranscriptDoc } from '../../models'
-import { OpenAiApiHelper } from '../../services/openai'
+import similarity from "compute-cosine-similarity";
+import { createObjectCsvWriter } from "csv-writer";
+import * as fs from "fs";
+import mongoose from "mongoose";
+import { makeMongoURI } from "../../config/envVariables";
+import {
+  RawTranscript,
+  StagingTranscript,
+  StagingTranscriptDoc,
+} from "../../models";
+import { OpenAiApiHelper } from "../../services/openai";
 
 // Define the CSV writer for all matches
 const allMatchesCsvWriter = createObjectCsvWriter({
-  path: './data/all_matches.csv',
+  path: "./data/all_matches.csv",
   header: [
-    { id: 'rawLineItem', title: 'Raw Line Item' },
-    { id: 'rawTranscriptLineItem', title: 'Raw Transcript Line Item' },
-    { id: 'previousLineItem', title: 'Previous Line Item' },
-    { id: 'filteredItemLineItem', title: 'Filtered Item Line Item' },
-    { id: 'similarity', title: 'Similarity' },
-    { id: 'gpt4Response', title: 'GPT-4 Response' },
-    { id: 'matchType', title: 'Match Type' },
+    { id: "rawLineItem", title: "Raw Line Item" },
+    { id: "rawTranscriptLineItem", title: "Raw Transcript Line Item" },
+    { id: "previousLineItem", title: "Previous Line Item" },
+    { id: "filteredItemLineItem", title: "Filtered Item Line Item" },
+    { id: "similarity", title: "Similarity" },
+    { id: "gpt4Response", title: "GPT-4 Response" },
+    { id: "matchType", title: "Match Type" },
   ],
-})
+});
 
 export interface MatchData {
-  rawLineItem: string
-  rawTranscriptLineItem: string
-  previousLineItem: string
-  filteredItemLineItem: string
-  similarity: number
-  gpt4Response: string
-  matchType: string
+  rawLineItem: string;
+  rawTranscriptLineItem: string;
+  previousLineItem: string;
+  filteredItemLineItem: string;
+  similarity: number;
+  gpt4Response: string;
+  matchType: string;
 }
 
 export interface similarityScore {
-  lineItem: StagingTranscriptDoc
-  similarity: number
+  lineItem: StagingTranscriptDoc;
+  similarity: number;
 }
 
 //TODO: fix to work with new staging transcript shape

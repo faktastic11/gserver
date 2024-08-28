@@ -1,24 +1,24 @@
-import { Document, Schema, Types, model } from 'mongoose'
+import { Document, Schema, Types, model } from "mongoose";
 
 // base interfaces used for creating documents with strong typing
 export interface CompanyType {
-  companyName: string
-  companyTicker: string
-  description: string
+  companyName: string;
+  companyTicker: string;
+  description: string;
   gics: {
-    sector: string
-    subIndustry: string
-  }
+    sector: string;
+    subIndustry: string;
+  };
 }
 
 export interface CompanyDoc extends Document, CompanyType {
-  industries: Types.Array<string>
+  industries: Types.Array<string>;
 }
 
 const schemaOptions = {
-  collection: 'companies',
+  collection: "companies",
   timestamps: true,
-}
+};
 
 const CompanySchema = new Schema<CompanyDoc>(
   {
@@ -42,6 +42,6 @@ const CompanySchema = new Schema<CompanyDoc>(
     },
   },
   schemaOptions,
-)
+);
 
-export default model<CompanyDoc>('Company', CompanySchema)
+export default model<CompanyDoc>("Company", CompanySchema);

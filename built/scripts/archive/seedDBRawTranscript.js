@@ -39,8 +39,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const dotenv = __importStar(require("dotenv"));
 const fs = __importStar(require("fs"));
 dotenv.config({ path: `${process.cwd()}/.env` });
-const envVariables_1 = require("config/envVariables");
-const models_1 = require("models");
+const envVariables_1 = require("../../config/envVariables");
+const models_1 = require("../../models");
 const mongoose_1 = __importDefault(require("mongoose"));
 function runRawTranscriptSeed() {
     return __awaiter(this, void 0, void 0, function* () {

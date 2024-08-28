@@ -26,12 +26,12 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const error_1 = require("controllers/error");
-const user_1 = require("controllers/user");
+const error_1 = require("../controllers/error");
+const user_1 = require("../controllers/user");
 const express_1 = __importDefault(require("express"));
 const joi_1 = __importDefault(require("joi"));
-const auth_1 = require("middleware/auth");
-const validators_1 = __importStar(require("validators"));
+const auth_1 = require("../middleware/auth");
+const validators_1 = __importStar(require("../validators"));
 const router = express_1.default.Router();
 const userSignUpValidation = (req, res, next) => {
     const querySchema = joi_1.default.object({

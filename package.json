@@ -2,6 +2,7 @@
   "name": "guidance-server",
   "version": "1.0.0",
   "description": "Server for the Guidance App Ecosystem",
+  "license": "MIT",
   "main": "built/index.js",
   "scripts": {
     "bw": "tsc && (concurrently \"tsc -w\" \"tsc-alias -w\" \"nodemon built/index.js\")",

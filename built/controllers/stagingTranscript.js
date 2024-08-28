@@ -10,8 +10,8 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getStagingTranscriptsByCompany = void 0;
-const error_1 = require("controllers/error");
-const models_1 = require("models");
+const error_1 = require("../controllers/error");
+const models_1 = require("../models");
 // const writeTranscriptsToCsv = async (transcriptByPeriodObj: StagingTranscriptByPeriodObjT, companyTicker: string) => {
 //   for (const period in transcriptByPeriodObj) {
 //     // write to csv

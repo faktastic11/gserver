@@ -35,13 +35,13 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const error_1 = require("controllers/error");
-const processTranscript_1 = require("controllers/processTranscript");
+const error_1 = require("../controllers/error");
+const processTranscript_1 = require("../controllers/processTranscript");
 const express_1 = __importDefault(require("express"));
 const joi_1 = __importDefault(require("joi"));
-const models_1 = require("models");
-const loggers_1 = require("util/loggers");
-const validators_1 = __importStar(require("validators"));
+const models_1 = require("../models");
+const loggers_1 = require("../util/loggers");
+const validators_1 = __importStar(require("../validators"));
 const logger = (0, loggers_1.getRegLogger)(__filename);
 const router = express_1.default.Router();
 const processTranscriptsValidation = (req, res, next) => {

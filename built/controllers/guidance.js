@@ -10,7 +10,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getGuidanceCompanies = exports.getCompanyGuidanceTranscripts = exports.getCompanyGuidancePeriods = exports.getTickerGuidance = void 0;
-const models_1 = require("models");
+const models_1 = require("../models");
 const getTickerGuidance = (req, res, _next) => __awaiter(void 0, void 0, void 0, function* () {
     const { companyTicker, transcriptYear, transcriptQuarter, guidanceYear, guidanceQuarter } = req.query;
     const guidance = yield models_1.ProcessedTranscript.find(Object.assign(Object.assign(Object.assign(Object.assign({ companyTicker }, (transcriptYear && { 'transcriptPeriod.fiscalYear': transcriptYear })), (transcriptQuarter && { 'transcriptPeriod.fiscalQuarter': transcriptQuarter })), (guidanceYear && { 'guidancePeriod.fiscalYear': guidanceYear })), (guidanceQuarter && { 'guidancePeriod.fiscalQuarter': guidanceQuarter })));

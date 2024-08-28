@@ -16,7 +16,7 @@ exports.initTranscriptProcessing = void 0;
 const models_1 = require("../../models");
 const processRawTranscriptToStaging_1 = __importDefault(require("./processRawTranscriptToStaging"));
 const processStagingTranscriptToProcessed_1 = __importDefault(require("./processStagingTranscriptToProcessed"));
-const loggers_1 = require("util/loggers");
+const loggers_1 = require("../../util/loggers");
 const logger = (0, loggers_1.getRegLogger)('initTranscriptProcessing');
 // function to process the entire pipeline for a transcript
 const initTranscriptProcessing = (RawTranscriptId) => __awaiter(void 0, void 0, void 0, function* () {

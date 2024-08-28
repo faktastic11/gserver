@@ -10,7 +10,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.reqTargetTypes = void 0;
-const error_1 = require("controllers/error");
+const error_1 = require("../controllers/error");
 var reqTargetTypes;
 (function (reqTargetTypes) {
     reqTargetTypes["BODY"] = "body";

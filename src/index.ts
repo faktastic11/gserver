@@ -44,7 +44,7 @@ if (nodeEnv === "local") {
 const corsOptions = {
   origin: (
     origin: string | undefined,
-    callback: (error: Error | null, allow?: boolean) => void
+    callback: (error: Error | null, allow?: boolean) => void,
   ) => {
     if (!origin) {
       callback(null, true);
@@ -89,6 +89,6 @@ app.listen(port, () => {
   console.log(
     `A ${
       nodeEnv ? nodeEnv.toUpperCase() : "NO ENV FILE"
-    } Node JS Server is listening on port ${port}`
+    } Node JS Server is listening on port ${port}`,
   );
 });

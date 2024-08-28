@@ -1,43 +1,45 @@
-import { Document, Schema, Types, model } from 'mongoose'
-import { RawTranscriptDoc } from '.'
+import { Document, Schema, Types, model } from "mongoose";
+import { RawTranscriptDoc } from ".";
 
 // base interfaces used for creating documents with strong typing
 export interface ProcessedTranscriptType {
-  companyName: string
-  companyTicker: string
-  lineItem: string
-  metricType: string
-  valueCategory: string
+  companyName: string;
+  companyTicker: string;
+  lineItem: string;
+  metricType: string;
+  valueCategory: string;
   guidancePeriod: {
-    fiscalYear?: number
-    fiscalQuarter?: number
-    raw: string
-  }
+    fiscalYear?: number;
+    fiscalQuarter?: number;
+    raw: string;
+  };
   transcriptPeriod: {
-    fiscalYear: number
-    fiscalQuarter: number
-    reportDate: Date
-  }
+    fiscalYear: number;
+    fiscalQuarter: number;
+    reportDate: Date;
+  };
   value: {
-    raw: { low: string; high: string; unit: string; scale: string }
-    low?: { amt: number; unit: string; scale: string }
-    mid?: { amt: number; unit: string; scale: string }
-    high?: { amt: number; unit: string; scale: string }
-  }
-  rawTranscriptSourceSentence: string
-  rawTranscriptSourceParagraph?: string
-  transcriptPosition?: { startLine: number; endLine: number }
-  rawTranscriptId: RawTranscriptDoc['_id']
+    raw: { low: string; high: string; unit: string; scale: string };
+    low?: { amt: number; unit: string; scale: string };
+    mid?: { amt: number; unit: string; scale: string };
+    high?: { amt: number; unit: string; scale: string };
+  };
+  rawTranscriptSourceSentence: string;
+  rawTranscriptSourceParagraph?: string;
+  transcriptPosition?: { startLine: number; endLine: number };
+  rawTranscriptId: RawTranscriptDoc["_id"];
 }
 
-export interface ProcessedTranscriptDoc extends Document, ProcessedTranscriptType {
-  rawTranscriptId: Types.ObjectId
+export interface ProcessedTranscriptDoc
+  extends Document,
+    ProcessedTranscriptType {
+  rawTranscriptId: Types.ObjectId;
 }
 
 const schemaOptions = {
-  collection: 'processedTranscripts',
+  collection: "processedTranscripts",
   timestamps: true,
-}
+};
 
 const valueItemSchema = {
   type: {
@@ -55,7 +57,7 @@ const valueItemSchema = {
     },
   },
   required: false,
-}
+};
 
 const ProcessedTranscriptSchema = new Schema<ProcessedTranscriptDoc>(
   {
@@ -80,7 +82,7 @@ const ProcessedTranscriptSchema = new Schema<ProcessedTranscriptDoc>(
     valueCategory: {
       type: String,
       required: true,
-      default: 'unknown',
+      default: "unknown",
     },
     value: {
       low: valueItemSchema,
@@ -139,15 +141,32 @@ const ProcessedTranscriptSchema = new Schema<ProcessedTranscriptDoc>(
         required: false,
       },
     },
-    rawTranscriptId: { type: Schema.Types.ObjectId, ref: 'rawTranscript', required: true },
+    rawTranscriptId: {
+      type: Schema.Types.ObjectId,
+      ref: "rawTranscript",
+      required: true,
+    },
   },
   schemaOptions,
-)
+);
 
-ProcessedTranscriptSchema.index({ companyTicker: 1, fiscalYear: 1, fiscalQuarter: 1 })
+ProcessedTranscriptSchema.index({
+  companyTicker: 1,
+  fiscalYear: 1,
+  fiscalQuarter: 1,
+});
 ProcessedTranscriptSchema.index(
-  { companyTicker: 1, fiscalYear: 1, fiscalQuarter: 1, lineItem: 1, reportDate: 1 },
+  {
+    companyTicker: 1,
+    fiscalYear: 1,
+    fiscalQuarter: 1,
+    lineItem: 1,
+    reportDate: 1,
+  },
   { unique: true },
-)
+);
 
-export default model<ProcessedTranscriptDoc>('processedTranscript', ProcessedTranscriptSchema)
+export default model<ProcessedTranscriptDoc>(
+  "processedTranscript",
+  ProcessedTranscriptSchema,
+);

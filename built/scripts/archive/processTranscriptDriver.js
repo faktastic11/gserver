@@ -1,6 +1,6 @@
 // import { format } from 'date-fns'
 // import * as fs from 'fs'
-// import { RawTranscript, RawTranscriptDoc, StagingTranscriptType } from 'models'
+// import { RawTranscript, RawTranscriptDoc, StagingTranscriptType } from '../../models'
 // import path from 'path'
 // import { processTranscript, promptConfig } from '../controllers/processTranscript/'
 // import { OpenAiApiHelper } from '../services/openai'

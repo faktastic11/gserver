@@ -72,6 +72,10 @@ if (envVariables_1.nodeEnv === "local") {
 }
 const corsOptions = {
     origin: (origin, callback) => {
+        if (!origin) {
+            callback(null, true);
+            return;
+        }
         let found = false;
         for (const reg of whiteList) {
             if (reg.test(origin)) {
@@ -79,7 +83,7 @@ const corsOptions = {
                 break;
             }
         }
-        if (found || !origin) {
+        if (found) {
             callback(null, true);
         }
         else {

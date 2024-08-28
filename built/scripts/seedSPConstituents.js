@@ -39,9 +39,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const csv_reader_1 = __importDefault(require("csv-reader"));
 const dotenv = __importStar(require("dotenv"));
 const fs = __importStar(require("fs"));
-const models_1 = require("models");
+const models_1 = require("../models");
 dotenv.config({ path: `${process.cwd()}/.env` });
-const envVariables_1 = require("config/envVariables");
+const envVariables_1 = require("../config/envVariables");
 const mongoose_1 = __importDefault(require("mongoose"));
 const processSPConstituents = () => __awaiter(void 0, void 0, void 0, function* () {
     // read csv file

@@ -9,8 +9,8 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const models_1 = require("models");
-const loggers_1 = require("util/loggers");
+const models_1 = require("../../models");
+const loggers_1 = require("../../util/loggers");
 const logger = (0, loggers_1.getRegLogger)(__filename);
 // returns the processed transcript ids as a string
 const convertValues = (stagingLineItem) => {

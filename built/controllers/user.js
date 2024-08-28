@@ -15,7 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.userRecentSearches = exports.logOut = exports.getMyProfile = exports.loginUser = exports.signUpUser = void 0;
 const bcrypt_1 = __importDefault(require("bcrypt"));
 const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
-const models_1 = require("models");
+const models_1 = require("../models");
 const JWT_SECRET_KEY = process.env.JWT_SECRET_KEY;
 const JWT_TOKEN_EXPIRATION = process.env.JWT_TOKEN_EXPIRATION;
 const signUpUser = (req, res, _next) => __awaiter(void 0, void 0, void 0, function* () {

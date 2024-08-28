@@ -35,8 +35,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.readPrompt = void 0;
 const fs = __importStar(require("fs"));
 const text_splitter_1 = require("langchain/text_splitter");
-const models_1 = require("models");
-const loggers_1 = require("util/loggers");
+const models_1 = require("../../models");
+const loggers_1 = require("../../util/loggers");
 const models_2 = require("../../models");
 const prompt_1 = require("./prompt");
 const logger = (0, loggers_1.getRegLogger)(__filename);
@@ -93,8 +93,8 @@ const binaryClassification = (companyName, transcriptDocuments) => __awaiter(voi
     })))).filter((doc) => doc != null);
     return furtherProcessingDocs;
 });
-function processRawTranscriptToStaging(rawTranscriptId_1) {
-    return __awaiter(this, arguments, void 0, function* (rawTranscriptId, useBinaryClassifier = false) {
+function processRawTranscriptToStaging(rawTranscriptId, useBinaryClassifier = false) {
+    return __awaiter(this, void 0, void 0, function* () {
         const rawTranscript = yield models_1.RawTranscript.findOne({ _id: rawTranscriptId });
         if (!rawTranscript)
             throw new Error(`Raw transcript ${rawTranscriptId} not found`);

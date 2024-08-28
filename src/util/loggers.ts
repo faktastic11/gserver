@@ -53,7 +53,7 @@ export class OpenAICompletionLogger {
       if (st.size > 0) {
         // write header first
         this.csvWriter.writeRecords(
-          this.headers.map(({ id, title }) => ({ [id]: title }))
+          this.headers.map(({ id, title }) => ({ [id]: title })),
         );
       }
     } catch (e) {
@@ -67,7 +67,7 @@ export class OpenAICompletionLogger {
 
     logEntry.createdDate = dateFormat(
       new Date(logEntry.created * 1000),
-      "yyyy-MM-dd HH:mm:ss"
+      "yyyy-MM-dd HH:mm:ss",
     );
     logEntry.env = nodeEnv;
 

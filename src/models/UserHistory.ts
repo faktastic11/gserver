@@ -1,32 +1,32 @@
-import mongoose, { Document, Schema, Types } from 'mongoose'
+import mongoose, { Document, Schema, Types } from "mongoose";
 
 interface UserHistoryDoc extends Document {
-  userId: Types.ObjectId
-  searches: string[]
+  userId: Types.ObjectId;
+  searches: string[];
 }
 
 const schemaOptions = {
   toJSON: {
     transform: function (_doc, ret) {
-      ret.id = ret._id
-      delete ret._id
-      delete ret.__v
+      ret.id = ret._id;
+      delete ret._id;
+      delete ret.__v;
     },
   },
   toObject: {
     transform: function (_doc, ret) {
-      ret.id = ret._id
-      delete ret._id
-      delete ret.__v
+      ret.id = ret._id;
+      delete ret._id;
+      delete ret.__v;
     },
   },
-}
+};
 
 const UserHistorySchema = new Schema<UserHistoryDoc>(
   {
     userId: {
       type: Schema.Types.ObjectId,
-      ref: 'User',
+      ref: "User",
       required: true,
     },
     searches: [
@@ -38,6 +38,6 @@ const UserHistorySchema = new Schema<UserHistoryDoc>(
     ],
   },
   schemaOptions,
-)
+);
 
-export default mongoose.model<UserHistoryDoc>('UserHistory', UserHistorySchema)
+export default mongoose.model<UserHistoryDoc>("UserHistory", UserHistorySchema);

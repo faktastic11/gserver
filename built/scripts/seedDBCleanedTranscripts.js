@@ -121,7 +121,7 @@ const parseTranscriptPosition = (transcriptPosition) => {
 };
 // this function takes csv for a cleaned transcript line items and inserts them as separate
 // documents into the processedTranscripts collection
-const insertProcessedTranscripts = (filePath_1, ...args_1) => __awaiter(void 0, [filePath_1, ...args_1], void 0, function* (filePath, deleteCurrent = true) {
+const insertProcessedTranscripts = (filePath, deleteCurrent = true) => __awaiter(void 0, void 0, void 0, function* () {
     // get file name from file path
     const [ticker, quarter, fiscalYearStr] = filePath.split('/').pop().split('.')[0].split('_').slice(0, 3);
     const fiscalQuarter = Number(quarter[1]);
