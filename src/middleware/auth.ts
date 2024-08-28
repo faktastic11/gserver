@@ -1,6 +1,6 @@
 import { NextFunction, Response } from "express";
 import jwt from "jsonwebtoken";
-import { AuthenticatedRequest } from "../util/ types";
+import { AuthenticatedRequest, User } from "../util/ types";
 
 const JWT_SECRET_KEY = process.env.JWT_SECRET_KEY;
 
@@ -20,7 +20,7 @@ export const authenticateToken = (
     if (err) {
       return res.status(403).send({ error: "Invalid token" });
     }
-    req.user = user;
+    req.user = user as User;
     next();
   });
 };
