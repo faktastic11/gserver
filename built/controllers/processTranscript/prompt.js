@@ -11,14 +11,14 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ChatGPTSession = exports.OpenAICompletion = exports.GPTPrompt = void 0;
 const crypto_1 = require("crypto");
-const openai_1 = require("../../services/openai");
-const loggers_1 = require("../../util/loggers");
+const openai_1 = require("services/openai");
+const loggers_1 = require("util/loggers");
 const openai_2 = require("../../services/openai");
 /* eslint-disable @typescript-eslint/no-explicit-any */
 const logger = (0, loggers_1.getRegLogger)(__filename);
 class GPTPrompt {
     constructor({ role, content, metaData, temp, presencePenalty, responseType, nextPromptKey, _response, promptName, }) {
-        this.formatString = ({ string, replacements }) => {
+        this.formatString = ({ string, replacements, }) => {
             return string.replace(/\{([^}]+)\}/g, (match, key) => {
                 // eslint-disable-next-line no-prototype-builtins
                 return replacements.hasOwnProperty(key) ? replacements[key] : match;
@@ -28,17 +28,27 @@ class GPTPrompt {
         this.content = content;
         this.metaData = metaData;
         this.temp = temp !== undefined ? temp : this.temp;
-        this.presencePenalty = presencePenalty !== undefined ? presencePenalty : this.presencePenalty;
-        this.responseType = responseType !== undefined ? responseType : this.responseType;
-        this.nextPromptKey = nextPromptKey !== undefined ? nextPromptKey : this.nextPromptKey;
+        this.presencePenalty =
+            presencePenalty !== undefined ? presencePenalty : this.presencePenalty;
+        this.responseType =
+            responseType !== undefined ? responseType : this.responseType;
+        this.nextPromptKey =
+            nextPromptKey !== undefined ? nextPromptKey : this.nextPromptKey;
         this._response = _response !== undefined ? _response : this._response;
-        this.promptName = promptName || 'dunnom8';
-        this.postInit({ promptName: null, content: content, contentData: this.metaData });
+        this.promptName = promptName || "dunnom8";
+        this.postInit({
+            promptName: null,
+            content: content,
+            contentData: this.metaData,
+        });
     }
     postInit({ promptName, content, contentData }) {
         return __awaiter(this, void 0, void 0, function* () {
-            this.promptName = promptName || 'dunnom8';
-            this.content = this.formatString({ string: content, replacements: contentData });
+            this.promptName = promptName || "dunnom8";
+            this.content = this.formatString({
+                string: content,
+                replacements: contentData,
+            });
         });
     }
     promptDict() {
@@ -67,7 +77,8 @@ class OpenAICompletion {
         this.totalTokens = total_tokens;
         try {
             this.cost =
-                this.promptTokens * openai_1.perTokenCost[this.model].input + this.completionTokens * openai_1.perTokenCost[this.model].output;
+                this.promptTokens * openai_1.perTokenCost[this.model].input +
+                    this.completionTokens * openai_1.perTokenCost[this.model].output;
         }
         catch (err) {
             this.cost = 0;
@@ -77,7 +88,7 @@ class OpenAICompletion {
 exports.OpenAICompletion = OpenAICompletion;
 class ChatGPTSession {
     constructor({ model, terminationKey, baseContext, }) {
-        this.openAIGPTAPICall = ({ prompt, model = this.defaultModel, availableFunctions = undefined, functionCall = 'auto', }) => __awaiter(this, void 0, void 0, function* () {
+        this.openAIGPTAPICall = ({ prompt, model = this.defaultModel, availableFunctions = undefined, functionCall = "auto", }) => __awaiter(this, void 0, void 0, function* () {
             // TODO: retry delays possible?
             const completionResponse = yield this.openai.createChatCompletion({
                 model,
@@ -106,10 +117,10 @@ class ChatGPTSession {
         if (response.content === this.terminationKey)
             return null;
         try {
-            if (prompt.responseType === 'str') {
+            if (prompt.responseType === "str") {
                 return response.content;
             }
-            else if (prompt.responseType === 'json_object') {
+            else if (prompt.responseType === "json_object") {
                 try {
                     const regex = /\[\s*(.*?)\s*\]/s;
                     const matches = response.content.match(regex);
@@ -119,23 +130,23 @@ class ChatGPTSession {
                             return JSON.parse(`[${matches[1]}]`);
                         }
                         catch (error) {
-                            console.error('Error parsing JSON: ', error);
+                            console.error("Error parsing JSON: ", error);
                         }
                     }
                     else {
-                        console.log('No match found');
+                        console.log("No match found");
                     }
                 }
                 catch (err) {
-                    logger.error('Could no parse JSON at all \n content: ', response.content);
+                    logger.error("Could no parse JSON at all \n content: ", response.content);
                 }
             }
-            else if (prompt.responseType === 'table') {
-                const rows = response.content.split('\n');
+            else if (prompt.responseType === "table") {
+                const rows = response.content.split("\n");
                 const formatted = rows.map((row) => {
-                    const fields = row.split('|');
+                    const fields = row.split("|");
                     let i;
-                    if (fields[0] == '') {
+                    if (fields[0] == "") {
                         i = 1;
                     }
                     else {
@@ -162,25 +173,25 @@ class ChatGPTSession {
                 });
                 return formatted;
             }
-            else if (prompt.responseType === 'list') {
-                return response.content.split('|').map((line) => line.trim());
+            else if (prompt.responseType === "list") {
+                return response.content.split("|").map((line) => line.trim());
             }
-            else if (prompt.responseType === 'bool') {
-                return response.content.toLowerCase().includes('true');
+            else if (prompt.responseType === "bool") {
+                return response.content.toLowerCase().includes("true");
             }
-            else if (prompt.responseType === 'float') {
+            else if (prompt.responseType === "float") {
                 return parseFloat(response.content);
             }
-            else if (prompt.responseType === 'int') {
+            else if (prompt.responseType === "int") {
                 return parseInt(response.content);
             }
             else {
-                throw Error('Invalid response type');
+                throw Error("Invalid response type");
             }
         }
         catch (err) {
             logger.error(err);
-            throw Error('Could not process response');
+            throw Error("Could not process response");
         }
     }
 }

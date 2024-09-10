@@ -68,9 +68,9 @@ const UserSchema = new mongoose_1.Schema({
         select: false,
     },
 }, schemaOptions);
-UserSchema.pre('save', function (next) {
+UserSchema.pre("save", function (next) {
     return __awaiter(this, void 0, void 0, function* () {
-        if (!this.isModified('password')) {
+        if (!this.isModified("password")) {
             return next();
         }
         try {
@@ -84,7 +84,7 @@ UserSchema.pre('save', function (next) {
     });
 });
 UserSchema.methods.getUserWithPassword = function () {
-    return this.model('User').findOne({ _id: this._id }).select('+password');
+    return this.model("User").findOne({ _id: this._id }).select("+password");
 };
-exports.default = mongoose_1.default.model('User', UserSchema);
+exports.default = mongoose_1.default.model("User", UserSchema);
 //# sourceMappingURL=User.js.map

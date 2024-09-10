@@ -10,7 +10,7 @@ var StagingTranscriptProcessingStage;
     StagingTranscriptProcessingStage["ERROR"] = "error";
 })(StagingTranscriptProcessingStage || (exports.StagingTranscriptProcessingStage = StagingTranscriptProcessingStage = {}));
 const schemaOptions = {
-    collection: 'stagingTranscripts',
+    collection: "stagingTranscripts",
     timestamps: true,
 };
 const StagingTranscriptSchema = new mongoose_1.Schema({
@@ -22,7 +22,11 @@ const StagingTranscriptSchema = new mongoose_1.Schema({
         required: true,
         index: true,
     },
-    rawTranscriptId: { type: mongoose_1.Schema.Types.ObjectId, ref: 'rawTranscript', required: true },
+    rawTranscriptId: {
+        type: mongoose_1.Schema.Types.ObjectId,
+        ref: "rawTranscript",
+        required: true,
+    },
     sessionId: {
         type: String,
         required: true,
@@ -86,10 +90,14 @@ const StagingTranscriptSchema = new mongoose_1.Schema({
     ],
 }, schemaOptions);
 StagingTranscriptSchema.index({ companyTicker: 1 });
-StagingTranscriptSchema.index({ companyTicker: 1, fiscalYear: 1, fiscalQuarter: 1 });
+StagingTranscriptSchema.index({
+    companyTicker: 1,
+    fiscalYear: 1,
+    fiscalQuarter: 1,
+});
 StagingTranscriptSchema.index({ createdAt: -1 });
 StagingTranscriptSchema.index({ updatedAt: -1 });
 StagingTranscriptSchema.index({ processingStage: -1 });
 StagingTranscriptSchema.index({ rawTranscriptId: -1 });
-exports.default = (0, mongoose_1.model)('stagingTranscript', StagingTranscriptSchema);
+exports.default = (0, mongoose_1.model)("stagingTranscript", StagingTranscriptSchema);
 //# sourceMappingURL=StagingTranscript.js.map

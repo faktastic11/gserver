@@ -4,7 +4,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.genericExpressErrorHandler = exports.logServerError = exports.logApiError = void 0;
-const util_1 = __importDefault(require("../util"));
+const util_1 = __importDefault(require("util"));
 class ApiError extends Error {
     constructor(err, additionalInfo, statusCode, apiPath, body, query, params) {
         super(err);
@@ -18,24 +18,24 @@ class ApiError extends Error {
         this.params = params;
     }
 }
-const logApiError = (req, res, next, err, statusCode = 500, additionalInfo = '') => {
+const logApiError = (req, res, next, err, statusCode = 500, additionalInfo = "") => {
     const path = req.originalUrl;
     console.error(err);
     next(new ApiError(err, additionalInfo, statusCode, path, req.body, req.query, req.params));
 };
 exports.logApiError = logApiError;
 const logServerError = (customMessage, err, throwE = false) => {
-    console.log('\n', customMessage);
+    console.log("\n", customMessage);
     console.error(err.message);
     console.error(err.stack);
-    console.log('\n');
+    console.log("\n");
     if (throwE)
         throw `${customMessage}-${err.message}`;
 };
 exports.logServerError = logServerError;
 const genericExpressErrorHandler = (err, req, res, next) => {
     const { statusCode = 500 } = err;
-    console.error('\n');
+    console.error("\n");
     console.error(`Error at Route: ${err.apiPath}`);
     console.error(`Custom Message: ${util_1.default.inspect(err.additionalInfo, true, 4, true)}`);
     console.error(`System Message: ${err.systemMessage}`);

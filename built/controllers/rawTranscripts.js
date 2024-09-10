@@ -10,7 +10,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getRawTranscripts = void 0;
-const models_1 = require("../models");
+const models_1 = require("models");
 const getRawTranscripts = (req, res, _next) => __awaiter(void 0, void 0, void 0, function* () {
     const { companyTicker, transcriptYear, transcriptQuarter } = req.query;
     console.log(Object.assign(Object.assign(Object.assign({}, (companyTicker && { companyTicker })), (transcriptYear && { fiscalYear: transcriptYear })), (transcriptQuarter && { fiscalQuarter: transcriptQuarter })));

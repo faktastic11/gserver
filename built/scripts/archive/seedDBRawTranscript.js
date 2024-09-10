@@ -39,21 +39,21 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const dotenv = __importStar(require("dotenv"));
 const fs = __importStar(require("fs"));
 dotenv.config({ path: `${process.cwd()}/.env` });
-const envVariables_1 = require("../../config/envVariables");
-const models_1 = require("../../models");
+const envVariables_1 = require("config/envVariables");
+const models_1 = require("models");
 const mongoose_1 = __importDefault(require("mongoose"));
 function runRawTranscriptSeed() {
     return __awaiter(this, void 0, void 0, function* () {
         // this function takes txt for a raw transcript and inserts it into the raw transcript collection
-        yield mongoose_1.default.connect((0, envVariables_1.makeMongoURI)('transcripts'));
-        const ticker = 'ADSK';
+        yield mongoose_1.default.connect((0, envVariables_1.makeMongoURI)("transcripts"));
+        const ticker = "ADSK";
         const fiscalQuarter = 1;
         const fiscalYear = 2024;
-        const dateOfRecord = new Date('2024-05-25T21:00:00.000Z');
+        const dateOfRecord = new Date("2024-05-25T21:00:00.000Z");
         const filePath = `${process.cwd()}/data/ADSK_Q1_2024_RawTranscript.txt`;
         // read file
-        const transcript = fs.readFileSync(filePath, 'utf8');
-        const transcriptArr = transcript.split('\n');
+        const transcript = fs.readFileSync(filePath, "utf8");
+        const transcriptArr = transcript.split("\n");
         const newRawDoc = yield models_1.RawTranscript.create({
             companyTicker: ticker,
             companyName: ticker,

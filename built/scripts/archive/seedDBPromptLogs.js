@@ -46,16 +46,21 @@ const mongoose_1 = __importDefault(require("mongoose"));
 const envVariables_1 = require("../../config/envVariables");
 const processPromptLogs = () => __awaiter(void 0, void 0, void 0, function* () {
     // read csv file
-    yield mongoose_1.default.connect((0, envVariables_1.makeMongoURI)('transcripts'));
+    yield mongoose_1.default.connect((0, envVariables_1.makeMongoURI)("transcripts"));
     const filePath = `${process.cwd()}/data/promptLog_20230821.csv`;
-    const inputStream = fs.createReadStream(filePath, 'utf8');
+    const inputStream = fs.createReadStream(filePath, "utf8");
     inputStream
-        .pipe((0, csv_reader_1.default)({ parseNumbers: true, parseBooleans: true, trim: true, asObject: true }))
-        .on('data', (row) => __awaiter(void 0, void 0, void 0, function* () {
+        .pipe((0, csv_reader_1.default)({
+        parseNumbers: true,
+        parseBooleans: true,
+        trim: true,
+        asObject: true,
+    }))
+        .on("data", (row) => __awaiter(void 0, void 0, void 0, function* () {
         // row is an array of CSV column data mapped to object properties
         const { logCreatedAt, logType, sessionId, chatId, chatgptCreatedAt, model, baseContext, prompt, role, content, functionName, functionArguments, finishReason, promptTokens, completionTokens, totalTokens, promptCost, } = row;
         const chatgptCreatedAtDateObj = new Date(chatgptCreatedAt * 1000);
-        const logCreatedAtDateObj = (0, date_fns_1.parse)(logCreatedAt, 'yyyy-MM-dd HH:mm:ss', new Date());
+        const logCreatedAtDateObj = (0, date_fns_1.parse)(logCreatedAt, "yyyy-MM-dd HH:mm:ss", new Date());
         // const newPromptLogDoc = await PromptLog.create({
         //   logCreatedAt: logCreatedAtDateObj,
         //   logType,

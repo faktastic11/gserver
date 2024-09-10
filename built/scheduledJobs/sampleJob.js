@@ -14,11 +14,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.runSampleJob = void 0;
 const node_cron_1 = __importDefault(require("node-cron"));
-const sampleFn = () => console.log('this job runs every hour');
+const sampleFn = () => console.log("this job runs every hour");
 function runSampleJob() {
     return __awaiter(this, void 0, void 0, function* () {
         // sampleFn()
-        node_cron_1.default.schedule('0 * * * *', () => __awaiter(this, void 0, void 0, function* () { return sampleFn; }));
+        node_cron_1.default.schedule("0 * * * *", () => __awaiter(this, void 0, void 0, function* () { return sampleFn; }));
     });
 }
 exports.runSampleJob = runSampleJob;

@@ -9,9 +9,9 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getStagingTranscriptsByCompany = void 0;
-const error_1 = require("../controllers/error");
-const models_1 = require("../models");
+exports.getCompanyGuidanceTranscripts = exports.getStagingTranscriptsByCompany = void 0;
+const error_1 = require("controllers/error");
+const models_1 = require("models");
 // const writeTranscriptsToCsv = async (transcriptByPeriodObj: StagingTranscriptByPeriodObjT, companyTicker: string) => {
 //   for (const period in transcriptByPeriodObj) {
 //     // write to csv
@@ -61,7 +61,7 @@ const models_1 = require("../models");
 //   }
 // }
 const stagingTranscriptDBToAPIMap = (stagingTranscript) => {
-    const { companyName, companyTicker, stagingLineItems, fiscalQuarter, fiscalYear } = stagingTranscript;
+    const { companyName, companyTicker, stagingLineItems, fiscalQuarter, fiscalYear, } = stagingTranscript;
     // trim down the db values to only what we need for the api
     const stagingLineItemTrimmed = stagingLineItems.map(({ rawLineItem, rawPeriod, rawLow, rawHigh, rawUnit, rawScale, metricType, rawTranscriptSourceSentence, rawTranscriptParagraph, }) => {
         return {
@@ -110,4 +110,36 @@ const getStagingTranscriptsByCompany = (req, res, next) => __awaiter(void 0, voi
     return res.send({ transcriptsByPeriod: trnByPeriod });
 });
 exports.getStagingTranscriptsByCompany = getStagingTranscriptsByCompany;
+const getCompanyGuidanceTranscripts = (req, res, _next) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const { companyTicker } = req.params;
+        const [periods, company] = yield Promise.all([
+            models_1.StagingTranscript.aggregate([
+                { $match: { companyTicker } },
+                { $group: { _id: { year: "$fiscalYear", quarter: "$fiscalQuarter" } } },
+            ])
+                .exec()
+                .then((docs) => docs.map((doc) => doc._id))
+                .then((ids) => ids.filter(({ year, quarter }) => year && quarter)),
+            models_1.Company.findOne({ companyTicker }).exec(),
+        ]);
+        const companyName = (company === null || company === void 0 ? void 0 : company.companyName) || companyTicker;
+        const { userId } = req.user;
+        let userHistory = yield models_1.UserHistory.findOne({ userId }).exec();
+        if (!userHistory) {
+            userHistory = new models_1.UserHistory({ userId, searches: [] });
+        }
+        const searches = userHistory.searches.filter((item) => item !== companyTicker);
+        searches.push(companyTicker);
+        yield models_1.UserHistory.findOneAndUpdate({ userId }, { searches }, { upsert: true, new: true }).exec();
+        return res.send({ companyTicker, companyName, transcriptPeriods: periods });
+    }
+    catch (error) {
+        console.error(error);
+        return res
+            .status(500)
+            .send({ error: "An error occurred while fetching the transcripts" });
+    }
+});
+exports.getCompanyGuidanceTranscripts = getCompanyGuidanceTranscripts;
 //# sourceMappingURL=stagingTranscript.js.map

@@ -17,7 +17,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.UserHistory = exports.User = exports.StagingTranscript = exports.RawTranscript = exports.ProcessedTranscript = exports.GPTLog = exports.Company = void 0;
+exports.GuidanceRevisions = exports.UserHistory = exports.User = exports.StagingTranscript = exports.RawTranscript = exports.ProcessedTranscript = exports.GPTLog = exports.Company = void 0;
 __exportStar(require("./Company"), exports);
 var Company_1 = require("./Company");
 Object.defineProperty(exports, "Company", { enumerable: true, get: function () { return __importDefault(Company_1).default; } });
@@ -39,4 +39,7 @@ Object.defineProperty(exports, "User", { enumerable: true, get: function () { re
 __exportStar(require("./UserHistory"), exports);
 var UserHistory_1 = require("./UserHistory");
 Object.defineProperty(exports, "UserHistory", { enumerable: true, get: function () { return __importDefault(UserHistory_1).default; } });
+__exportStar(require("./GuidanceRevisions"), exports);
+var GuidanceRevisions_1 = require("./GuidanceRevisions");
+Object.defineProperty(exports, "GuidanceRevisions", { enumerable: true, get: function () { return __importDefault(GuidanceRevisions_1).default; } });
 //# sourceMappingURL=index.js.map

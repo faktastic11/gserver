@@ -39,20 +39,25 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const csv_reader_1 = __importDefault(require("csv-reader"));
 const dotenv = __importStar(require("dotenv"));
 const fs = __importStar(require("fs"));
-const models_1 = require("../models");
+const models_1 = require("models");
 dotenv.config({ path: `${process.cwd()}/.env` });
-const envVariables_1 = require("../config/envVariables");
+const envVariables_1 = require("config/envVariables");
 const mongoose_1 = __importDefault(require("mongoose"));
 const processSPConstituents = () => __awaiter(void 0, void 0, void 0, function* () {
     // read csv file
-    yield mongoose_1.default.connect((0, envVariables_1.makeMongoURI)('transcripts'));
+    yield mongoose_1.default.connect((0, envVariables_1.makeMongoURI)("transcripts"));
     const filePath = `${process.cwd()}/data/sp_constituents.csv`;
-    const inputStream = fs.createReadStream(filePath, 'utf8');
+    const inputStream = fs.createReadStream(filePath, "utf8");
     inputStream
-        .pipe((0, csv_reader_1.default)({ parseNumbers: true, parseBooleans: true, trim: true, asObject: true }))
-        .on('data', (row) => __awaiter(void 0, void 0, void 0, function* () {
+        .pipe((0, csv_reader_1.default)({
+        parseNumbers: true,
+        parseBooleans: true,
+        trim: true,
+        asObject: true,
+    }))
+        .on("data", (row) => __awaiter(void 0, void 0, void 0, function* () {
         // row is an array of CSV column data mapped to object properties
-        const { ticker, companyName, sector, subIndustry, hqLocation, dateAdded, cik, founded } = row;
+        const { ticker, companyName, sector, subIndustry, hqLocation, dateAdded, cik, founded, } = row;
         const newCompanyDoc = yield models_1.Company.create({
             companyTicker: ticker,
             companyName,

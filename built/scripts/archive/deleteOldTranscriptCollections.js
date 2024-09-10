@@ -43,10 +43,12 @@ const envVariables_1 = require("../../config/envVariables");
 // this function drops any collections from our 'transcripts' db with that contains the string 'transcripts_'
 const deleteOldTranscriptCollections = () => __awaiter(void 0, void 0, void 0, function* () {
     // read csv file
-    const connection = yield mongoose_1.default.connect((0, envVariables_1.makeMongoURI)('transcripts'));
+    const connection = yield mongoose_1.default.connect((0, envVariables_1.makeMongoURI)("transcripts"));
     const db = mongoose_1.default.connection.db;
     const collections = yield db.listCollections().toArray();
-    const transcriptCollectionsNames = collections.filter((c) => c.name.includes('transcripts_')).map((c) => c.name);
+    const transcriptCollectionsNames = collections
+        .filter((c) => c.name.includes("transcripts_"))
+        .map((c) => c.name);
     for (const collection of transcriptCollectionsNames) {
         console.log(`Dropping collection ${collection}`);
         try {

@@ -35,31 +35,31 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.readPrompt = void 0;
 const fs = __importStar(require("fs"));
 const text_splitter_1 = require("langchain/text_splitter");
-const models_1 = require("../../models");
-const loggers_1 = require("../../util/loggers");
+const models_1 = require("models");
+const loggers_1 = require("util/loggers");
 const models_2 = require("../../models");
 const prompt_1 = require("./prompt");
 const logger = (0, loggers_1.getRegLogger)(__filename);
 function readPrompt(promptPath) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            const rawData = yield fs.promises.readFile(promptPath, 'utf-8');
+            const rawData = yield fs.promises.readFile(promptPath, "utf-8");
             const prompt = JSON.parse(rawData);
             return prompt;
         }
         catch (error) {
-            logger.error('Error reading the file:', error);
+            logger.error("Error reading the file:", error);
         }
     });
 }
 exports.readPrompt = readPrompt;
 const binaryClassification = (companyName, transcriptDocuments) => __awaiter(void 0, void 0, void 0, function* () {
-    const classifierJSON = yield readPrompt('prompts/guidance_prompt.json');
-    const classifierContext = classifierJSON['classifier_context'];
+    const classifierJSON = yield readPrompt("prompts/guidance_prompt.json");
+    const classifierContext = classifierJSON["classifier_context"];
     // Classifier for further processing
     const classifyChat = new prompt_1.ChatGPTSession({
-        model: 'gpt-3.5-turbo',
-        terminationKey: 'TERMINATE',
+        model: "gpt-3.5-turbo",
+        terminationKey: "TERMINATE",
     });
     const furtherProcessingDocs = (yield Promise.all(transcriptDocuments.map((doc) => __awaiter(void 0, void 0, void 0, function* () {
         var _a, _b, _c;
@@ -68,20 +68,20 @@ const binaryClassification = (companyName, transcriptDocuments) => __awaiter(voi
                 return null;
             }
             const classifierPrompt = new prompt_1.GPTPrompt({
-                role: 'user',
+                role: "user",
                 content: classifierContext.content,
                 metaData: {
                     companyName,
                     transcriptParagraph: doc.pageContent,
                 },
-                responseType: 'bool',
+                responseType: "bool",
                 temp: 0,
             });
             const classifierResult = yield classifyChat.openAIGPTAPICall({
                 prompt: classifierPrompt,
             });
             if (classifierResult) {
-                console.info('Found financial info in doc %o', (_c = (_b = doc.metadata) === null || _b === void 0 ? void 0 : _b.loc) === null || _c === void 0 ? void 0 : _c.lines);
+                console.info("Found financial info in doc %o", (_c = (_b = doc.metadata) === null || _b === void 0 ? void 0 : _b.loc) === null || _c === void 0 ? void 0 : _c.lines);
                 return doc;
             }
             return null;
@@ -103,10 +103,12 @@ function processRawTranscriptToStaging(rawTranscriptId, useBinaryClassifier = fa
         const processingStartTime = new Date();
         // binaryClassification(transcript, false)
         // join the text attribute of each object in transcript array into a single string
-        const transcriptText = rawTranscript['transcript'].map((item) => item.text).join('\n');
+        const transcriptText = rawTranscript["transcript"]
+            .map((item) => item.text)
+            .join("\n");
         const text = transcriptText;
         const splitter = new text_splitter_1.CharacterTextSplitter({
-            separator: '\n',
+            separator: "\n",
             chunkSize: 1000,
             chunkOverlap: 300,
         });
@@ -115,12 +117,12 @@ function processRawTranscriptToStaging(rawTranscriptId, useBinaryClassifier = fa
             transcriptDocuments = yield binaryClassification(companyName, transcriptDocuments);
         }
         // read prompts/oneshot_prompt.json and store in variable
-        const extractionJSON = yield readPrompt('prompts/extraction_prompt.json');
-        const extractJSON = extractionJSON['extract_line_items'];
+        const extractionJSON = yield readPrompt("prompts/extraction_prompt.json");
+        const extractJSON = extractionJSON["extract_line_items"];
         // create a new LLMChain object
         const extractChat = new prompt_1.ChatGPTSession({
-            model: 'gpt-4-1106-preview',
-            terminationKey: 'TERMINATE',
+            model: "gpt-4-1106-preview",
+            terminationKey: "TERMINATE",
         });
         // loop through transcript documents and generate guidance for each
         const stagingTranscript = yield models_2.StagingTranscript.create({
@@ -148,43 +150,47 @@ function processRawTranscriptToStaging(rawTranscriptId, useBinaryClassifier = fa
         for (const doc of transcriptDocuments) {
             try {
                 const extractPrompt = new prompt_1.GPTPrompt({
-                    role: 'user',
-                    content: extractJSON['content'],
+                    role: "user",
+                    content: extractJSON["content"],
                     metaData: {
                         companyName: rawTranscript.companyName,
-                        thisQuarter: 'Q' + rawTranscript.fiscalQuarter,
+                        thisQuarter: "Q" + rawTranscript.fiscalQuarter,
                         thisYear: rawTranscript.fiscalYear,
-                        nextQuarter: 'Q' + (rawTranscript.fiscalQuarter + 1),
+                        nextQuarter: "Q" + (rawTranscript.fiscalQuarter + 1),
                         nextYear: rawTranscript.fiscalYear + 1,
-                        excerpt: doc['pageContent'],
+                        excerpt: doc["pageContent"],
                     },
-                    responseType: extractJSON['response_type'],
+                    responseType: extractJSON["response_type"],
                     temp: 0,
                 });
-                const [rawResult, response] = yield extractChat.openAIGPTAPICall({ prompt: extractPrompt });
+                const [rawResult, response] = yield extractChat.openAIGPTAPICall({
+                    prompt: extractPrompt,
+                });
                 if (rawResult != null) {
                     for (const row of rawResult) {
                         logger.debug(JSON.stringify(row));
-                        const lineItemEmbedding = yield extractChat.getEmbeddings({ text: row['rawLineItem'] });
+                        const lineItemEmbedding = yield extractChat.getEmbeddings({
+                            text: row["rawLineItem"],
+                        });
                         // Create a staging line item doc
                         const stagingLineItem = {
-                            rawLineItem: row['rawLineItem'],
-                            rawPeriod: row['rawPeriod'],
-                            rawLow: row['rawLow'],
-                            rawHigh: row['rawHigh'],
-                            rawUnit: row['rawUnit'],
-                            rawScale: row['rawScale'],
-                            metricType: row['metricType'],
-                            rawTranscriptParagraph: doc['pageContent'],
-                            rawTranscriptSourceSentence: row['rawTranscriptSourceSentence'],
-                            transcriptPosition: doc['metadata']['loc']['lines'],
+                            rawLineItem: row["rawLineItem"],
+                            rawPeriod: row["rawPeriod"],
+                            rawLow: row["rawLow"],
+                            rawHigh: row["rawHigh"],
+                            rawUnit: row["rawUnit"],
+                            rawScale: row["rawScale"],
+                            metricType: row["metricType"],
+                            rawTranscriptParagraph: doc["pageContent"],
+                            rawTranscriptSourceSentence: row["rawTranscriptSourceSentence"],
+                            transcriptPosition: doc["metadata"]["loc"]["lines"],
                             rawLineItemEmbedding: lineItemEmbedding,
                         };
                         stagingLineItems.push(stagingLineItem);
                     }
                 }
                 else {
-                    logger.debug('No line items found: ', rawResult);
+                    logger.debug("No line items found: ", rawResult);
                 }
                 const { sessionId, prompts, chatId, created, role, content, functionName, functionArgs, finishReason, promptTokens, completionTokens, totalTokens, cost, } = response;
                 gptLog.lineItems.push({
@@ -225,12 +231,14 @@ function processRawTranscriptToStaging(rawTranscriptId, useBinaryClassifier = fa
 exports.default = processRawTranscriptToStaging;
 function testProcessingTranscripts() {
     return __awaiter(this, void 0, void 0, function* () {
-        const tickers = ['NVDA'];
+        const tickers = ["NVDA"];
         for (const ticker of tickers) {
-            const rawTranscripts = yield models_1.RawTranscript.findOne({ companyTicker: ticker });
-            logger.info('Starting Ticker: ', ticker);
+            const rawTranscripts = yield models_1.RawTranscript.findOne({
+                companyTicker: ticker,
+            });
+            logger.info("Starting Ticker: ", ticker);
             const test = yield processRawTranscriptToStaging(rawTranscripts._id);
-            logger.info('Processed transcript: ', ticker, '\n', test);
+            logger.info("Processed transcript: ", ticker, "\n", test);
         }
     });
 }

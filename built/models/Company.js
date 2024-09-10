@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose_1 = require("mongoose");
 const schemaOptions = {
-    collection: 'companies',
+    collection: "companies",
     timestamps: true,
 };
 const CompanySchema = new mongoose_1.Schema({
@@ -25,5 +25,5 @@ const CompanySchema = new mongoose_1.Schema({
         required: false,
     },
 }, schemaOptions);
-exports.default = (0, mongoose_1.model)('Company', CompanySchema);
+exports.default = (0, mongoose_1.model)("Company", CompanySchema);
 //# sourceMappingURL=Company.js.map

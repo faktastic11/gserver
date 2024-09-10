@@ -39,23 +39,23 @@ Object.defineProperty(exports, "__esModule", { value: true });
 // seed mongo with processed transcripts
 const dotenv = __importStar(require("dotenv"));
 dotenv.config({ path: `${process.cwd()}/.env` });
-const envVariables_1 = require("../../config/envVariables");
+const envVariables_1 = require("config/envVariables");
 const date_fns_1 = require("date-fns");
-const models_1 = require("../../models");
+const models_1 = require("models");
 const mongoose_1 = __importDefault(require("mongoose"));
 function runRawTranscriptMigration() {
     return __awaiter(this, void 0, void 0, function* () {
         // this function takes a list of collections and seeds them into the database into our new form
-        yield mongoose_1.default.connect((0, envVariables_1.makeMongoURI)('transcripts'));
+        yield mongoose_1.default.connect((0, envVariables_1.makeMongoURI)("transcripts"));
         const db = mongoose_1.default.connection.db;
         const collections = yield db.listCollections().toArray();
         console.log(collections);
         const docsToInsert = [];
         // Loop through each collection and log the collection name
         yield Promise.all(collections.map(({ name: collectionName }) => __awaiter(this, void 0, void 0, function* () {
-            let ticker = '';
-            if (collectionName.includes('transcripts_')) {
-                ticker = collectionName.split('_')[1];
+            let ticker = "";
+            if (collectionName.includes("transcripts_")) {
+                ticker = collectionName.split("_")[1];
             }
             console.log(collectionName);
             const docs = yield db.collection(collectionName).find({}).toArray();
@@ -63,12 +63,14 @@ function runRawTranscriptMigration() {
         })));
         for (const doc of docsToInsert) {
             console.log(doc);
-            const { _id, ticker, transcript, quarter, time_recorded: dateOfRecord } = doc;
-            const cleanedDate = dateOfRecord.replace('ET', '-0500');
-            const dateParsed = (0, date_fns_1.parse)(cleanedDate, 'MMM d, yyyy h:mm aaaa xx', new Date());
-            const transcriptArr = Array.isArray(transcript) ? transcript : transcript.split('\n');
-            const [quarterQ, fiscalYear] = quarter.split('_');
-            const fiscalQuarter = quarterQ.replace('Q', '');
+            const { _id, ticker, transcript, quarter, time_recorded: dateOfRecord, } = doc;
+            const cleanedDate = dateOfRecord.replace("ET", "-0500");
+            const dateParsed = (0, date_fns_1.parse)(cleanedDate, "MMM d, yyyy h:mm aaaa xx", new Date());
+            const transcriptArr = Array.isArray(transcript)
+                ? transcript
+                : transcript.split("\n");
+            const [quarterQ, fiscalYear] = quarter.split("_");
+            const fiscalQuarter = quarterQ.replace("Q", "");
             const newRawDoc = yield models_1.RawTranscript.create({
                 companyTicker: ticker,
                 companyName: ticker,

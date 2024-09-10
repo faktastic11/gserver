@@ -46,15 +46,15 @@ const logger = (0, loggers_1.getRegLogger)(__filename);
 const openai = new openai_1.OpenAiApiHelper({ maxRetries: 5, timeout: 20000 });
 let topicJson = [];
 try {
-    const data = fs.readFileSync('prompts/guidance_prompt.json', 'utf8');
+    const data = fs.readFileSync("prompts/guidance_prompt.json", "utf8");
     topicJson = JSON.parse(data);
 }
 catch (err) {
-    logger.error('Error reading the file:', err);
+    logger.error("Error reading the file:", err);
 }
 function hasProperPunctuation(text) {
     const trimmedText = text.trim();
-    return ['.', '!', '?'].includes(trimmedText.slice(-1));
+    return [".", "!", "?"].includes(trimmedText.slice(-1));
 }
 function binaryClassification(rawDoc, local) {
     return __awaiter(this, void 0, void 0, function* () {
@@ -65,23 +65,24 @@ function binaryClassification(rawDoc, local) {
             if (!hasProperPunctuation(text)) {
                 return;
             }
-            topicJson[1]['content'] = text;
-            topicJson[2]['content'] = `Keep in mind that the fiscal year is ${fiscalYear},
+            topicJson[1]["content"] = text;
+            topicJson[2]["content"] =
+                `Keep in mind that the fiscal year is ${fiscalYear},
      the fiscal quarter is Q${fiscalQuarter} and the company is ${companyTicker}`;
             const chatCompletion = yield openai.createChatCompletion({
                 messages: topicJson,
-                model: 'gpt-3.5-turbo',
+                model: "gpt-3.5-turbo",
             });
             const result = chatCompletion.choices[0].message.content.trim();
-            line['processFurther'] = result.toLowerCase().includes('true');
+            line["processFurther"] = result.toLowerCase().includes("true");
         })));
         if (local) {
             logger.info(`saving to csv file`);
-            const csvStream = fs.createWriteStream('./data/output.csv');
-            csvStream.write('Text,FurtherProcess\n');
+            const csvStream = fs.createWriteStream("./data/output.csv");
+            csvStream.write("Text,FurtherProcess\n");
             for (const line of transcript) {
-                if (hasProperPunctuation(line['text'])) {
-                    csvStream.write(`"${line['text']}",${line['processFurther']}\n`);
+                if (hasProperPunctuation(line["text"])) {
+                    csvStream.write(`"${line["text"]}",${line["processFurther"]}\n`);
                 }
             }
             csvStream.end();
@@ -94,14 +95,14 @@ function binaryClassification(rawDoc, local) {
 exports.binaryClassification = binaryClassification;
 function getTranscripts() {
     return __awaiter(this, void 0, void 0, function* () {
-        yield mongoose_1.default.connect((0, envVariables_1.makeMongoURI)('transcripts'));
+        yield mongoose_1.default.connect((0, envVariables_1.makeMongoURI)("transcripts"));
         const trs = yield models_1.RawTranscript.find({
-            companyTicker: 'AAPL',
-            fiscalYear: '2023',
-            fiscalQuarter: '1',
+            companyTicker: "AAPL",
+            fiscalYear: "2023",
+            fiscalQuarter: "1",
         });
         if (!trs) {
-            throw new Error('No documents matching that description');
+            throw new Error("No documents matching that description");
         }
         console.log(trs);
         yield binaryClassification(trs[0], true);

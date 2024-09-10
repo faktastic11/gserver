@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose_1 = require("mongoose");
 const schemaOptions = {
-    collection: 'gptLogs',
+    collection: "gptLogs",
     timestamps: true,
 };
 const GPTLogSchema = new mongoose_1.Schema({
@@ -28,7 +28,9 @@ const GPTLogSchema = new mongoose_1.Schema({
             required: false,
             default: function () {
                 if (this.durationMetrics.start && this.durationMetrics.end) {
-                    return (this.durationMetrics.end.getTime() - this.durationMetrics.start.getTime()) / 1000;
+                    return ((this.durationMetrics.end.getTime() -
+                        this.durationMetrics.start.getTime()) /
+                        1000);
                 }
                 else
                     return null;
@@ -43,7 +45,11 @@ const GPTLogSchema = new mongoose_1.Schema({
             required: false,
         },
     },
-    rawTranscriptId: { type: mongoose_1.Schema.Types.ObjectId, ref: 'rawTranscript', required: true },
+    rawTranscriptId: {
+        type: mongoose_1.Schema.Types.ObjectId,
+        ref: "rawTranscript",
+        required: true,
+    },
     lineItems: [
         {
             sessionId: {
@@ -105,5 +111,5 @@ const GPTLogSchema = new mongoose_1.Schema({
         },
     ],
 }, schemaOptions);
-exports.default = (0, mongoose_1.model)('GPTLog', GPTLogSchema);
+exports.default = (0, mongoose_1.model)("GPTLog", GPTLogSchema);
 //# sourceMappingURL=GPTLog.js.map

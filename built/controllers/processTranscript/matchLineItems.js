@@ -3,15 +3,15 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const csv_writer_1 = require("csv-writer");
 // Define the CSV writer for all matches
 const allMatchesCsvWriter = (0, csv_writer_1.createObjectCsvWriter)({
-    path: './data/all_matches.csv',
+    path: "./data/all_matches.csv",
     header: [
-        { id: 'rawLineItem', title: 'Raw Line Item' },
-        { id: 'rawTranscriptLineItem', title: 'Raw Transcript Line Item' },
-        { id: 'previousLineItem', title: 'Previous Line Item' },
-        { id: 'filteredItemLineItem', title: 'Filtered Item Line Item' },
-        { id: 'similarity', title: 'Similarity' },
-        { id: 'gpt4Response', title: 'GPT-4 Response' },
-        { id: 'matchType', title: 'Match Type' },
+        { id: "rawLineItem", title: "Raw Line Item" },
+        { id: "rawTranscriptLineItem", title: "Raw Transcript Line Item" },
+        { id: "previousLineItem", title: "Previous Line Item" },
+        { id: "filteredItemLineItem", title: "Filtered Item Line Item" },
+        { id: "similarity", title: "Similarity" },
+        { id: "gpt4Response", title: "GPT-4 Response" },
+        { id: "matchType", title: "Match Type" },
     ],
 });
 //TODO: fix to work with new staging transcript shape

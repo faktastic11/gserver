@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose_1 = require("mongoose");
 const schemaOptions = {
-    collection: 'rawTranscripts',
+    collection: "rawTranscripts",
     timestamps: true,
 };
 const RawTranscriptSchema = new mongoose_1.Schema({
@@ -41,5 +41,5 @@ const RawTranscriptSchema = new mongoose_1.Schema({
     ],
 }, schemaOptions);
 RawTranscriptSchema.index({ companyTicker: 1, fiscalYear: 1, fiscalQuarter: 1 }, { unique: true });
-exports.default = (0, mongoose_1.model)('rawTranscript', RawTranscriptSchema);
+exports.default = (0, mongoose_1.model)("rawTranscript", RawTranscriptSchema);
 //# sourceMappingURL=RawTranscript.js.map

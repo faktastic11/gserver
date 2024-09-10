@@ -46,18 +46,18 @@ const envVariables_1 = require("../config/envVariables");
 const isNumber = (str) => {
     return !isNaN(parseFloat(str)) && isFinite(Number(str));
 };
-const isNone = (str) => str.toLowerCase().trim() === 'none';
+const isNone = (str) => str.toLowerCase().trim() === "none";
 const getScaleMultiplier = (scale) => {
     if (!scale)
         return 1;
     scale = `${scale}`.toLowerCase();
-    if (scale.includes('thousand'))
+    if (scale.includes("thousand"))
         return 1000;
-    else if (scale.includes('million'))
+    else if (scale.includes("million"))
         return 1000000;
-    else if (scale.includes('billion'))
+    else if (scale.includes("billion"))
         return 1000000000;
-    else if (scale.includes('trillion'))
+    else if (scale.includes("trillion"))
         return 1000000000000;
     else {
         if (scale && !isNone(scale))
@@ -69,7 +69,9 @@ const parseLineItemValue = (row) => {
     const { rawLow, rawHigh, rawScale } = row;
     const scaleMultiplier = getScaleMultiplier(rawScale);
     const amtLow = isNumber(rawLow) ? parseFloat(rawLow) * scaleMultiplier : null;
-    const amtHigh = isNumber(rawHigh) ? parseFloat(rawHigh) * scaleMultiplier : null;
+    const amtHigh = isNumber(rawHigh)
+        ? parseFloat(rawHigh) * scaleMultiplier
+        : null;
     return { amtLow, amtHigh };
 };
 const parseGuidanceTimePeriod = (timePeriod, { tQuarter, tYear }) => {
@@ -81,31 +83,31 @@ const parseGuidanceTimePeriod = (timePeriod, { tQuarter, tYear }) => {
         console.log(`WARNING: unknown time period ${timePeriod}`);
         return { guidanceQuarter: null, guidanceYear: null };
     }
-    if (timePeriod !== 'this quarter' &&
-        timePeriod !== 'this year' &&
-        timePeriod !== 'next quarter' &&
-        timePeriod !== 'next year') {
+    if (timePeriod !== "this quarter" &&
+        timePeriod !== "this year" &&
+        timePeriod !== "next quarter" &&
+        timePeriod !== "next year") {
         console.log(`WARNING: unknown time period ${timePeriod}`);
         return { guidanceQuarter: null, guidanceYear: null };
     }
-    const [w1, w2] = timePeriod.split(' ');
+    const [w1, w2] = timePeriod.split(" ");
     let guidanceQuarter = tQuarter;
     let guidanceYear = tYear;
-    if (w1 === 'this') {
-        if (w2 === 'quarter') {
+    if (w1 === "this") {
+        if (w2 === "quarter") {
             return { guidanceQuarter, guidanceYear };
         }
-        else if (w2 === 'year') {
+        else if (w2 === "year") {
             guidanceQuarter = null;
         }
     }
-    else if (w1 === 'next') {
-        if (w2 === 'quarter') {
+    else if (w1 === "next") {
+        if (w2 === "quarter") {
             guidanceQuarter = guidanceQuarter === 4 ? 1 : guidanceQuarter + 1;
             guidanceYear = guidanceQuarter === 1 ? guidanceYear + 1 : guidanceYear;
             return { guidanceQuarter, guidanceYear };
         }
-        else if (w2 === 'year') {
+        else if (w2 === "year") {
             guidanceYear += 1;
             return { guidanceQuarter: null, guidanceYear };
         }
@@ -114,7 +116,7 @@ const parseGuidanceTimePeriod = (timePeriod, { tQuarter, tYear }) => {
 };
 const parseTranscriptPosition = (transcriptPosition) => {
     const [startLine, endLine] = transcriptPosition
-        .split(' ')
+        .split(" ")
         .map((n) => parseInt(n))
         .filter((n) => !isNaN(n));
     return { startLine, endLine };
@@ -123,17 +125,28 @@ const parseTranscriptPosition = (transcriptPosition) => {
 // documents into the processedTranscripts collection
 const insertProcessedTranscripts = (filePath, deleteCurrent = true) => __awaiter(void 0, void 0, void 0, function* () {
     // get file name from file path
-    const [ticker, quarter, fiscalYearStr] = filePath.split('/').pop().split('.')[0].split('_').slice(0, 3);
+    const [ticker, quarter, fiscalYearStr] = filePath
+        .split("/")
+        .pop()
+        .split(".")[0]
+        .split("_")
+        .slice(0, 3);
     const fiscalQuarter = Number(quarter[1]);
     const fiscalYear = Number(fiscalYearStr);
     console.log(`START - processing transcript. ${ticker} ${fiscalQuarter} ${fiscalYear}`);
-    const rawTranscript = yield models_1.RawTranscript.findOne({ companyTicker: ticker, fiscalQuarter, fiscalYear });
-    console.log((rawTranscript === null || rawTranscript === void 0 ? void 0 : rawTranscript.id) || 'no raw transcript found');
+    const rawTranscript = yield models_1.RawTranscript.findOne({
+        companyTicker: ticker,
+        fiscalQuarter,
+        fiscalYear,
+    });
+    console.log((rawTranscript === null || rawTranscript === void 0 ? void 0 : rawTranscript.id) || "no raw transcript found");
     // overwrite existing processed transcript data
     if (deleteCurrent) {
-        yield models_1.ProcessedTranscript.deleteMany({ rawTranscriptId: rawTranscript === null || rawTranscript === void 0 ? void 0 : rawTranscript.id });
+        yield models_1.ProcessedTranscript.deleteMany({
+            rawTranscriptId: rawTranscript === null || rawTranscript === void 0 ? void 0 : rawTranscript.id,
+        });
     }
-    const sheetData = xlsx_1.default.read(filePath, { type: 'file' });
+    const sheetData = xlsx_1.default.read(filePath, { type: "file" });
     const sheetName = sheetData.SheetNames[0];
     const sheet = sheetData.Sheets[sheetName];
     const rows = xlsx_1.default.utils.sheet_to_json(sheet);
@@ -141,7 +154,8 @@ const insertProcessedTranscripts = (filePath, deleteCurrent = true) => __awaiter
     for (const row of rows) {
         const { action, comments, rawTranscriptId, sessionId, rawLineItem, rawPeriod, rawLow, rawHigh, rawUnit, rawScale, metricType, rawTranscriptSourceSentence, rawTranscriptParagraph, transcriptPosition, } = row;
         try {
-            if ((action === null || action === void 0 ? void 0 : action.toLowerCase().includes('delete')) || !(metricType === null || metricType === void 0 ? void 0 : metricType.toLowerCase().includes('guidance'))) {
+            if ((action === null || action === void 0 ? void 0 : action.toLowerCase().includes("delete")) ||
+                !(metricType === null || metricType === void 0 ? void 0 : metricType.toLowerCase().includes("guidance"))) {
                 continue;
             }
             const { guidanceQuarter, guidanceYear } = parseGuidanceTimePeriod(rawPeriod, {
@@ -160,7 +174,8 @@ const insertProcessedTranscripts = (filePath, deleteCurrent = true) => __awaiter
                     fiscalQuarter: rawTranscript.fiscalQuarter,
                     fiscalYear: rawTranscript.fiscalYear,
                     reportDate: rawTranscript.dateOfRecord,
-                }, lineItem: rawLineItem, metricType: 'Guidance', valueCategory: 'unknown', value: Object.assign(Object.assign(Object.assign({ raw: { low: rawLow, high: rawHigh, unit: rawUnit, scale: rawScale } }, (amtLow && { low: { amt: amtLow, unit: rawUnit } })), (amtHigh && { high: { amt: amtHigh, unit: rawUnit } })), (amtLow && amtHigh && { mid: { amt: (amtLow + amtHigh) / 2, unit: rawUnit } })), rawTranscriptSourceSentence: rawTranscriptSourceSentence, rawTranscriptSourceParagraph: rawTranscriptParagraph }, (transcriptPosition && {
+                }, lineItem: rawLineItem, metricType: "Guidance", valueCategory: "unknown", value: Object.assign(Object.assign(Object.assign({ raw: { low: rawLow, high: rawHigh, unit: rawUnit, scale: rawScale } }, (amtLow && { low: { amt: amtLow, unit: rawUnit } })), (amtHigh && { high: { amt: amtHigh, unit: rawUnit } })), (amtLow &&
+                    amtHigh && { mid: { amt: (amtLow + amtHigh) / 2, unit: rawUnit } })), rawTranscriptSourceSentence: rawTranscriptSourceSentence, rawTranscriptSourceParagraph: rawTranscriptParagraph }, (transcriptPosition && {
                 transcriptPosition: {
                     startLine,
                     endLine,
@@ -169,7 +184,7 @@ const insertProcessedTranscripts = (filePath, deleteCurrent = true) => __awaiter
         }
         catch (err) {
             console.log(err);
-            console.log('ERROR - processing row', filePath, row);
+            console.log("ERROR - processing row", filePath, row);
             errorRows.push({ err, row, filePath });
         }
     }
@@ -177,8 +192,8 @@ const insertProcessedTranscripts = (filePath, deleteCurrent = true) => __awaiter
     return errorRows;
 });
 const processAllCleanedTranscripts = () => __awaiter(void 0, void 0, void 0, function* () {
-    console.log('START - processing all cleaned transcripts');
-    yield mongoose_1.default.connect((0, envVariables_1.makeMongoURI)('transcripts'));
+    console.log("START - processing all cleaned transcripts");
+    yield mongoose_1.default.connect((0, envVariables_1.makeMongoURI)("transcripts"));
     /*put cleaned transcript file path below. All files in this folder will be processed and they need to be in the format of
       <ticker>_<quarter>_<year>_cleaned.xlsx
       <ticker>_<quarter>_<year>_clean.xlsx
@@ -188,18 +203,18 @@ const processAllCleanedTranscripts = () => __awaiter(void 0, void 0, void 0, fun
     const cleanedTranscriptNames = fs.readdirSync(baseFilePath);
     // const cleanedTranscriptNames = ['ABT_Q2_2023_cleaned.xlsx']
     const erroredTranscripts = yield Promise.all(cleanedTranscriptNames.map((transcriptFileName) => __awaiter(void 0, void 0, void 0, function* () {
-        if (transcriptFileName[0] === '.')
+        if (transcriptFileName[0] === ".")
             return;
         try {
             return yield insertProcessedTranscripts(`${baseFilePath}/${transcriptFileName}`);
         }
         catch (err) {
             console.log(err);
-            console.log('ERROR - processing transcript', transcriptFileName);
+            console.log("ERROR - processing transcript", transcriptFileName);
         }
     })));
-    console.log('FINISH - processing all cleaned transcripts');
-    console.log('errored transcripts');
+    console.log("FINISH - processing all cleaned transcripts");
+    console.log("errored transcripts");
     console.log(erroredTranscripts.flat());
 });
 processAllCleanedTranscripts();

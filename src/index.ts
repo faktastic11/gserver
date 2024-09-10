@@ -30,6 +30,7 @@ let whiteList: RegExp[] = [
   /sequent-fin\.netlify\.app/,
   /^https:\/\/admirable-paprenjak-66e11d\.netlify\.app$/,
   /^https:\/\/guidance-frontend\.vercel\.app$/,
+  /^https:\/\/sequentfe\.vercel\.app$/,
 ];
 
 // allow local front ends into the server

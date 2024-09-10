@@ -26,12 +26,12 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const error_1 = require("../controllers/error");
-const rawTranscripts_1 = require("../controllers/rawTranscripts");
-const stagingTranscript_1 = require("../controllers/stagingTranscript");
+const error_1 = require("controllers/error");
+const rawTranscripts_1 = require("controllers/rawTranscripts");
+const stagingTranscript_1 = require("controllers/stagingTranscript");
 const express_1 = __importDefault(require("express"));
 const joi_1 = __importDefault(require("joi"));
-const validators_1 = __importStar(require("../validators"));
+const validators_1 = __importStar(require("validators"));
 const router = express_1.default.Router();
 const transcriptsValidation = (req, res, next) => {
     const querySchema = joi_1.default.object({
@@ -41,17 +41,21 @@ const transcriptsValidation = (req, res, next) => {
         limit: joi_1.default.number().min(0).default(400),
         skip: joi_1.default.number().min(0).default(0),
     });
-    (0, validators_1.default)(req, res, next, [{ schema: querySchema, reqTarget: validators_1.reqTargetTypes.QUERY }]);
+    (0, validators_1.default)(req, res, next, [
+        { schema: querySchema, reqTarget: validators_1.reqTargetTypes.QUERY },
+    ]);
 };
-router.get('/v1/raw/transcripts', transcriptsValidation, (req, res, next) => (0, rawTranscripts_1.getRawTranscripts)(req, res, next).catch((err) => {
-    return (0, error_1.logApiError)(req, res, next, err, 500, 'Could not get company guidance transcript segments or they do not exist');
+router.get("/v1/raw/transcripts", transcriptsValidation, (req, res, next) => (0, rawTranscripts_1.getRawTranscripts)(req, res, next).catch((err) => {
+    return (0, error_1.logApiError)(req, res, next, err, 500, "Could not get company guidance transcript segments or they do not exist");
 }));
 const stagingTranscriptsListValidation = (req, res, next) => {
     const querySchema = joi_1.default.object({
         companyTicker: joi_1.default.string(),
         outputToCSV: joi_1.default.boolean().default(false),
     });
-    (0, validators_1.default)(req, res, next, [{ schema: querySchema, reqTarget: validators_1.reqTargetTypes.QUERY }]);
+    (0, validators_1.default)(req, res, next, [
+        { schema: querySchema, reqTarget: validators_1.reqTargetTypes.QUERY },
+    ]);
 };
 // router.get('/v1/staging/transcripts', stagingTranscriptsListValidation, (req, res, next) =>
 //   getAllStagingTranscriptPeriods(req, res, next).catch((err) => {
@@ -63,10 +67,12 @@ const stagingTranscriptsValidation = (req, res, next) => {
         companyTicker: joi_1.default.string(),
         outputToCSV: joi_1.default.boolean().default(false),
     });
-    (0, validators_1.default)(req, res, next, [{ schema: querySchema, reqTarget: validators_1.reqTargetTypes.QUERY }]);
+    (0, validators_1.default)(req, res, next, [
+        { schema: querySchema, reqTarget: validators_1.reqTargetTypes.QUERY },
+    ]);
 };
-router.get('/v1/staging/transcript', stagingTranscriptsValidation, (req, res, next) => (0, stagingTranscript_1.getStagingTranscriptsByCompany)(req, res, next).catch((err) => {
-    return (0, error_1.logApiError)(req, res, next, err, 500, 'Could not get company staging transcripts or they do not exist');
+router.get("/v1/staging/transcript", stagingTranscriptsValidation, (req, res, next) => (0, stagingTranscript_1.getStagingTranscriptsByCompany)(req, res, next).catch((err) => {
+    return (0, error_1.logApiError)(req, res, next, err, 500, "Could not get company staging transcripts or they do not exist");
 }));
 exports.default = router;
 //# sourceMappingURL=transcripts.js.map

@@ -10,7 +10,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.reqTargetTypes = void 0;
-const error_1 = require("../controllers/error");
+const error_1 = require("controllers/error");
 var reqTargetTypes;
 (function (reqTargetTypes) {
     reqTargetTypes["BODY"] = "body";
@@ -26,7 +26,7 @@ exports.default = (req, res, next, targets) => __awaiter(void 0, void 0, void 0,
     for (const { schema, reqTarget } of targets) {
         const { error, value } = schema.validate(req[reqTarget], options);
         if (error) {
-            return (0, error_1.logApiError)(req, res, next, Error('Validation Error'), 400, error.details);
+            return (0, error_1.logApiError)(req, res, next, Error("Validation Error"), 400, error.details);
         }
         else {
             req[reqTarget] = value;

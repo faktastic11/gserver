@@ -43,7 +43,7 @@ const schemaOptions = {
 const UserHistorySchema = new mongoose_1.Schema({
     userId: {
         type: mongoose_1.Schema.Types.ObjectId,
-        ref: 'User',
+        ref: "User",
         required: true,
     },
     searches: [
@@ -54,5 +54,5 @@ const UserHistorySchema = new mongoose_1.Schema({
         },
     ],
 }, schemaOptions);
-exports.default = mongoose_1.default.model('UserHistory', UserHistorySchema);
+exports.default = mongoose_1.default.model("UserHistory", UserHistorySchema);
 //# sourceMappingURL=UserHistory.js.map

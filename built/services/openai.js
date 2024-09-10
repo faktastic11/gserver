@@ -42,9 +42,12 @@ const openai_1 = __importDefault(require("openai"));
 const envVariables_1 = require("../config/envVariables");
 class OpenAiApiHelper {
     constructor({ maxRetries, timeout }) {
-        this.getEmbeddings = ({ text, model = 'text-embedding-ada-002' }) => __awaiter(this, void 0, void 0, function* () {
-            text = text.replace('\n', ' ');
-            const returnPromise = this.openai.embeddings.create({ input: text, model: model });
+        this.getEmbeddings = ({ text, model = "text-embedding-ada-002" }) => __awaiter(this, void 0, void 0, function* () {
+            text = text.replace("\n", " ");
+            const returnPromise = this.openai.embeddings.create({
+                input: text,
+                model: model,
+            });
             const embeddings = yield returnPromise;
             return embeddings.data[0].embedding;
         });
@@ -61,39 +64,45 @@ class OpenAiApiHelper {
         return this.openai.chat.completions.create(Object.assign(Object.assign(Object.assign(Object.assign({ messages,
             model }, (functions && { functions })), (functionCall && { name: functionCall })), (temperature && { temperature })), (presencePenalty && { presencePenalty })), Object.assign(Object.assign({}, (timeout && { timeout })), { retries }));
     }
-    finetuneModel(path, purpose = 'fine-tune') {
-        const fileUpload = this.openai.files.create({ file: fs_1.default.createReadStream(path), purpose: purpose });
-        const fineTune = this.openai.fineTuning.jobs.create({ training_file: fileUpload, model: 'gpt-3.5-turbo' });
+    finetuneModel(path, purpose = "fine-tune") {
+        const fileUpload = this.openai.files.create({
+            file: fs_1.default.createReadStream(path),
+            purpose: purpose,
+        });
+        const fineTune = this.openai.fineTuning.jobs.create({
+            training_file: fileUpload,
+            model: "gpt-3.5-turbo",
+        });
         return fineTune;
     }
 }
 exports.OpenAiApiHelper = OpenAiApiHelper;
 exports.perTokenCost = {
-    'gpt-4-preview-1106': {
+    "gpt-4-preview-1106": {
         input: 0.00001,
         output: 0.00003,
     },
-    'gpt-4': {
+    "gpt-4": {
         input: 0.00003,
         output: 0.00006,
     },
-    'gpt-4-0613': {
+    "gpt-4-0613": {
         input: 0.00003,
         output: 0.00006,
     },
-    'gpt-4-32k': {
+    "gpt-4-32k": {
         input: 0.00006,
         output: 0.00012,
     },
-    'gpt-3.5-turbo': {
+    "gpt-3.5-turbo": {
         input: 0.0000015,
         output: 0.000002,
     },
-    'gpt-3.5-turbo-0613': {
+    "gpt-3.5-turbo-0613": {
         input: 0.0000015,
         output: 0.000002,
     },
-    'gpt-3.5-turbo-16k': {
+    "gpt-3.5-turbo-16k": {
         input: 0.000003,
         output: 0.000004,
     },

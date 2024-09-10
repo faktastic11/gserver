@@ -9,8 +9,8 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const models_1 = require("../../models");
-const loggers_1 = require("../../util/loggers");
+const models_1 = require("models");
+const loggers_1 = require("util/loggers");
 const logger = (0, loggers_1.getRegLogger)(__filename);
 // returns the processed transcript ids as a string
 const convertValues = (stagingLineItem) => {
@@ -19,31 +19,31 @@ const convertValues = (stagingLineItem) => {
     let unit = rawUnit;
     let amtLow = 0;
     let amtHigh = null;
-    if (rawScale.includes('million')) {
-        scale = 'million';
+    if (rawScale.includes("million")) {
+        scale = "million";
         unit = rawUnit;
         amtLow = Number(rawLow) * 1000000;
         if (rawHigh)
             amtHigh = Number(rawHigh) * 1000000;
     }
-    else if (rawScale.includes('billion')) {
-        scale = 'billion';
+    else if (rawScale.includes("billion")) {
+        scale = "billion";
         unit = rawUnit;
         amtLow = Number(rawLow) * 1000000000;
         if (rawHigh)
             amtHigh = Number(rawHigh) * 1000000000;
     }
-    else if (rawScale.includes('trillion')) {
+    else if (rawScale.includes("trillion")) {
         // do we need this, probably not
-        scale = 'trillion';
+        scale = "trillion";
         unit = rawUnit;
         amtLow = Number(rawLow) * 1000000000000;
         if (rawHigh)
             amtHigh = Number(rawHigh) * 1000000000000;
     }
-    else if (rawScale.includes('percent') || rawScale.includes('%')) {
-        scale = 'percent';
-        unit = '%';
+    else if (rawScale.includes("percent") || rawScale.includes("%")) {
+        scale = "percent";
+        unit = "%";
         amtLow = Number(rawLow);
         if (rawHigh)
             amtHigh = Number(rawHigh) / 100;
@@ -58,7 +58,7 @@ function processStagingTranscriptToProcessed(stagingTranscriptId) {
         logger.info(`Processing staging transcript ids: ${stagingTranscriptId} to processed transcript`);
         const stagingTranscript = yield models_1.StagingTranscript.findById(stagingTranscriptId);
         if (!stagingTranscript) {
-            logger.warn('no staging transcript found for processing');
+            logger.warn("no staging transcript found for processing");
             return [];
         }
         const createdProcessedTranscripts = [];
@@ -68,7 +68,7 @@ function processStagingTranscriptToProcessed(stagingTranscriptId) {
             throw Error(`RawTranscript not found for id ${rawTranscriptId}`);
         const { fiscalQuarter, fiscalYear, dateOfRecord } = rawT;
         for (const st of stagingLineItems) {
-            const { rawLineItem, rawPeriod, rawHigh, metricType, rawTranscriptSourceSentence, transcriptPosition } = st;
+            const { rawLineItem, rawPeriod, rawHigh, metricType, rawTranscriptSourceSentence, transcriptPosition, } = st;
             const { scale, unit, amtLow, amtHigh } = convertValues(st);
             try {
                 const pT = yield models_1.ProcessedTranscript.create({
@@ -76,7 +76,7 @@ function processStagingTranscriptToProcessed(stagingTranscriptId) {
                     companyTicker,
                     lineItem: rawLineItem,
                     metricType,
-                    valueCategory: 'unknown',
+                    valueCategory: "unknown",
                     guidancePeriod: {
                         raw: rawPeriod,
                     },
