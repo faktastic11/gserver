@@ -128,7 +128,7 @@ export const getGuidanceCompanies = async (
 ) => {
   // const { limit, skip } = req.query - we don't need these for now
 
-  const companies = await ProcessedTranscript.distinct("companyTicker");
+  const companies = await StagingTranscript.distinct("companyTicker");
   return res.send({ companies: companies.filter((c) => c) });
 };
 
